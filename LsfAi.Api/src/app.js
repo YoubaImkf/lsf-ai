@@ -1,17 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const userController = require('../src/controllers/userController.js');
+const usersRouter = require('./routes/usersRoute.js')
 
 // Middleware for parsing data into JSON
 app.use(bodyParser.json());
 
 // User routes
-app.get('/users', userController.getAllUsers);
-app.get('/users/:id', userController.getUserById);
-app.post('/users', userController.createUser);
-app.put('/users/:id', userController.updateUser);
-app.delete('/users/:id', userController.deleteUser);
+app.use('/users', usersRouter);
 
 // Middleware for error handling
 app.use((err, req, res, next) => {
