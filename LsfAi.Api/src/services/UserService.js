@@ -1,12 +1,5 @@
-require('dotenv').config()
-const mysql = require('mysql');
-
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
+const db = require('../config/database');
+const bcrypt = require('bcrypt');
 
 const userService = {
     
@@ -16,36 +9,35 @@ const userService = {
  */
   getUsers: () => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM `user`';
-      connection.query(query, (error, results) => {
+      const query = 'SELECT * FROM `user` WHERE `role` = "user"';
+      db.query(query, (error, results) => {
         if (error) {
           reject(error);
         } else {
           resolve(results);
         }
       });
-    });
+    }); 
   },
 
-/**
- * Create a new user in the database.
- * @param {object} user - Information about the user to be created.
- * @param {string} user.email - The user's email address.
- * @param {string} user.username - The user's username.
- * @param {string} user.password - The user's password.
- * @param {string} user.role - The user's role.
- * @returns {Promise<object>} A promise that resolves to the created user object.
- */
-  createUser: (user) => {
+  /**
+   * Create a new user in the database.
+   * @param {string} email - The user's email address.
+   * @param {string} username - The user's username.
+   * @param {string} password - The user's password.
+   * @param {string} role - The user's role.
+   * @returns {Promise<object>} A promise that resolves to the created user object.
+   */
+  createUser: (email, username, password, role) => {
     return new Promise((resolve, reject) => {
       const query = 'INSERT INTO `user` (email, username, password, role) VALUES (?, ?, ?, ?)';
-      const values = [user.email, user.username, user.password, user.role];
-      connection.query(query, values, (error, result) => {
+      const values = [email, username, password, role];
+      db.query(query, values, (error, result) => {
         if (error) {
           reject(error);
         } else {
           const insertedUserId = result.insertId;
-          resolve({ id: insertedUserId, ...user });
+          resolve({ id: insertedUserId, email, username, role });
         }
       });
     });
@@ -59,7 +51,7 @@ const userService = {
   getUserById: (userId) => {
     return new Promise((resolve, reject) => {
       const query = 'SELECT * FROM `user` WHERE id = ?';
-      connection.query(query, [userId], (error, results) => {
+      db.query(query, [userId], (error, results) => {
         if (error) {
           reject(error);
         } else {
@@ -83,7 +75,7 @@ const userService = {
     return new Promise((resolve, reject) => {
       const query = 'UPDATE `user` SET email = ?, username = ?, password = ?, role = ? WHERE id = ?';
       const values = [userData.email, userData.username, userData.password, userData.role, userId];
-      connection.query(query, values, (error) => {
+      db.query(query, values, (error) => {
         if (error) {
           reject(error);
         } else {
@@ -101,7 +93,7 @@ const userService = {
   deleteUser: (userId) => {
     return new Promise((resolve, reject) => {
       const query = 'DELETE FROM `user` WHERE id = ?';
-      connection.query(query, [userId], (error) => {
+      db.query(query, [userId], (error) => {
         if (error) {
           reject(error);
         } else {
@@ -110,6 +102,70 @@ const userService = {
       });
     });
   },
+
+  // # AUTHENTICATION
+  
+  /**
+   * Authenticate a user based on their email and password.
+   * @param {string} email - The user's email address.
+   * @param {string} password - The user's password.
+   * @returns {Promise<Object|null>} A promise that resolves to the authenticated user object if successful, or null if not authenticated.
+   */
+  login: (email, password) => {
+    return new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM `user` WHERE email = ?';
+      db.query(query, [email], async (error, results) => {
+        if (error) {
+          reject(error);
+        } else {
+          if (results.length > 0) {
+            const user = results[0];
+            const isPasswordValid = await bcrypt.compare(password, user.password);
+            if (isPasswordValid) {
+              resolve(user);
+            } else {
+              resolve(null);
+            }
+          } else {
+            resolve(null);
+          }
+        }
+      });
+    });
+  },
+  
+  /**
+   * Create a new user in the database.
+   * @param {string} email - The user's email address.
+   * @param {string} username - The user's username.
+   * @param {string} password - The user's password.
+   * @param {string} role - The user's role.
+   * @returns {Promise<object>} A promise that resolves to the created user object.
+   */
+  register: (email, username, password, role) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const hashedPassword = await bcrypt.hash(password, 10); // 10: number of times it should execute its hashing algorithm
+        const query = 'INSERT INTO `user` (email, username, password, role) VALUES (?, ?, ?, ?)';
+        const values = [email, username, hashedPassword, role];
+        console.log(values);
+
+        db.query(query, values, (error, result) => {
+          if (error) {
+            reject(error);
+          } else {
+            const insertedUserId = result.insertId;
+            resolve({ id: insertedUserId, email, username, role });
+          }
+        });
+      } catch (error) {
+        reject(error);
+      }
+    });
+  },
+    
+  
 };
+
 
 module.exports = userService;
