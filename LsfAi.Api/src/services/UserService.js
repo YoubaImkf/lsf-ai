@@ -29,11 +29,11 @@ const userService = {
 
 /**
  * Create a new user in the database.
- * @param {object} user - Les informations de l'utilisateur à créer.
- * @param {string} user.email - L'email de l'utilisateur.
- * @param {string} user.username - Le nom d'utilisateur de l'utilisateur.
- * @param {string} user.password - Le mot de passe de l'utilisateur.
- * @param {string} user.role - Le rôle de l'utilisateur.
+ * @param {object} user - Information about the user to be created.
+ * @param {string} user.email - The user's email address.
+ * @param {string} user.username - The user's username.
+ * @param {string} user.password - The user's password.
+ * @param {string} user.role - The user's role.
  * @returns {Promise<object>} A promise that resolves to the created user object.
  */
   createUser: (user) => {

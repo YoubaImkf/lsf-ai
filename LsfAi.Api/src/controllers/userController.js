@@ -1,6 +1,10 @@
 const userService = require('../services/UserService');
 
-
+/**
+ * Get all users.
+ * @route GET /users
+ * @returns {Promise<object[]>} A promise that resolves to an array of user objects.
+ */
 const getAllUsers = async (req, res) => {
   try {
     const users = await userService.getUsers();
@@ -10,6 +14,12 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+/**
+ * Get a user by ID.
+ * @route GET /users/{id}
+ * @param {number} id - The ID of the user.
+ * @returns {Promise<object>} A promise that resolves to the user object.
+ */
 const getUserById = async (req, res) => {
   try {
     const userId = parseInt(req.params.id);
@@ -24,6 +34,16 @@ const getUserById = async (req, res) => {
   }
 };
 
+/**
+ * Create a new user.
+ * @route POST /users
+ * @param {object} user - Information about the user to be created.
+ * @param {string} user.email - The user's email address.
+ * @param {string} user.username - The user's username.
+ * @param {string} user.password - The user's password.
+ * @param {string} user.role - The user's role.
+ * @returns {Promise<object>} A promise that resolves to the created user object.
+ */
 const createUser = async (req, res) => {
   try {
     const userData = req.body;
@@ -34,6 +54,13 @@ const createUser = async (req, res) => {
   }
 };
 
+/**
+ * Update a user by ID.
+ * @route PUT /users/{id}
+ * @param {number} id - The ID of the user to be updated.
+ * @param {object} user - Updated information about the user.
+ * @returns {Promise<object>} A promise that resolves to the updated user object.
+ */
 const updateUser = async (req, res) => {
   try {
     const userId = parseInt(req.params.id);
@@ -49,6 +76,12 @@ const updateUser = async (req, res) => {
   }
 };
 
+/**
+ * Delete a user by ID.
+ * @route DELETE /users/{id}
+ * @param {number} id - The ID of the user to be deleted.
+ * @returns {Promise<object>} A promise that resolves to a success message.
+ */
 const deleteUser = async (req, res) => {
   try {
     const userId = parseInt(req.params.id);
