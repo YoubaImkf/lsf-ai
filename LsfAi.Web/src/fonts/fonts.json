@@ -1,0 +1,69 @@
+{
+    "fonts": [
+      {
+        "name": "Montserrat Thin Italic",
+        "src": "./fonts/Montserrat-ThinItalic.ttf"
+      },
+      {
+        "name": "Montserrat Thin",
+        "src": "./fonts/Montserrat-Thin.ttf"
+      },
+      {
+        "name": "Montserrat SemiBold Italic",
+        "src": "./fonts/Montserrat-SemiBoldItalic.ttf"
+      },
+      {
+        "name": "Montserrat SemiBold",
+        "src": "./fonts/Montserrat-SemiBold.ttf"
+      },
+      {
+        "name": "Montserrat Regular",
+        "src": "./fonts/Montserrat-Regular.ttf"
+      },
+      {
+        "name": "Montserrat Medium Italic",
+        "src": "./fonts/Montserrat-MediumItalic.ttf"
+      },
+      {
+        "name": "Montserrat Medium",
+        "src": "./fonts/Montserrat-Medium.ttf"
+      },
+      {
+        "name": "Montserrat Light Italic",
+        "src": "./fonts/Montserrat-LightItalic.ttf"
+      },
+      {
+        "name": "Montserrat Light",
+        "src": "./fonts/Montserrat-Light.ttf"
+      },
+      {
+        "name": "Montserrat Italic",
+        "src": "./fonts/Montserrat-Italic.ttf"
+      },
+      {
+        "name": "Montserrat ExtraLight Italic",
+        "src": "./fonts/Montserrat-ExtraLightItalic.ttf"
+      },
+      {
+        "name": "Montserrat ExtraLight",
+        "src": "./fonts/Montserrat-ExtraLight.ttf"
+      },
+      {
+        "name": "Montserrat ExtraBold",
+        "src": "./fonts/Montserrat-ExtraBold.ttf"
+      },
+      {
+        "name": "Montserrat ExtraBold Italic",
+        "src": "./fonts/Montserrat-ExtraBoldItalic.ttf"
+      },
+      {
+        "name": "Montserrat Black Italic",
+        "src": "./fonts/Montserrat-BlackItalic.ttf"
+      },
+      {
+        "name": "Montserrat Black",
+        "src": "./fonts/Montserrat-Black.ttf"
+      }
+    ]
+  }
+  

@@ -1,0 +1,15 @@
+{
+  "name": "lsfai.api",
+  "version": "1.0.0",
+  "description": "The awesome api of a dreamed project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Moussa Firdaousse, Imakhlaf Youba, Canaria Kaira, Tizi Salim",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}

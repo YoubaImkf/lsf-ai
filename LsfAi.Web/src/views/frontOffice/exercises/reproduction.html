@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+    <script type="module" defer src="../../../app.js"></script>
+    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    <title>reproduction</title>
+
+    <link href="../../../style/app.css" rel="stylesheet" />
+    <link href="../../../style/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style/HeaderComponent.css">
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+  </head>
+  <body>
+    <script type="module">
+      import HeaderComponent from '../../../components/HeaderComponent.js';
+
+      const headerComponent = new HeaderComponent();
+      const titleText = 'Reproduction de signe';
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const headerContainer = document.querySelector('.header-container');
+      
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
+      headerContainer.innerHTML = headerComponent.render(titleText);
+    </script>
+
+    <div class="header-container"></div>
+
+    <div class="tutorial_video">
+      <iframe src="https://www.youtube.com/embed/"> </iframe>
+    </div>
+    <section class="webcam-section">
+      <div id="webcam-container"></div>
+    </section>
+
+    <div id="label-container"></div>
+
+
+  </body>
+</html>

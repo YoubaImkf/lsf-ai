@@ -1,0 +1,109 @@
+/* @import url(./Fonts.css); */
+
+/* * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat-Regular';
+} */
+
+
+/* Progress bar */
+.progressbar{
+    counter-reset: step;
+  }
+.progressbar li:before{
+    content:"1";
+    width: 30px;
+    height: 30px;
+    border: 2px solid #bebebe;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    line-height: 27px;
+    background: white;
+    color: #bebebe;
+    text-align: center;
+    font-weight: bold;
+}
+
+.progressbar li:after{
+    content: '';
+    position: absolute;
+    width:100%;
+    height: 3px;
+    background: #979797;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+  }
+  
+.progressbar li.active + li:after{
+    background: #3aac5d;
+}
+.progressbar li.active + li:before{
+   border-color: #3aac5d;
+   background: #3aac5d;
+   color: white
+}
+
+.tutorial_video {
+    width: 100%;
+    padding-top: 0.6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tutorial_video iframe{
+    border-radius: 1em;
+    border: none;
+    height: 198px;
+    width: 382px;
+    max-height: 307px;
+    max-width: 664px;
+}
+
+/* WEBCAM */
+.webcam-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 496px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#webcam-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#webcam-container canvas {
+    width: 400px;
+    height: 496px;
+}
+
+@media (min-width: 664px) {
+    .tutorial_video iframe {
+        width: 100%;
+        height: 270px;
+        max-width: 664px;
+        max-height: 307px;
+    }
+}
+
+@media (max-width: 400px) {
+}
+
