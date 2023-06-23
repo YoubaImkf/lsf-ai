@@ -14,14 +14,16 @@ function postData(data) {
       if (response.ok) {
         console.log("Successful login");
         // redirige vers page...
-        window.location.href = "http://localhost:3000/camera";
+        window.location.href = "http://localhost:3000/reproduction";
       } else {
         throw new Error("Login failed");
       }
     })
     .catch((error) => {
-      console.error(error);
-      alert("An error occurred during login attempt");
+      emailError.textContent = "Your email or password is incorrect";
+      passwordError.textContent = "Your email or password is incorrect";
+      form.elements.email.classList.add("error-input");
+      form.elements.password.classList.add("error-input");
     });
 }
 
