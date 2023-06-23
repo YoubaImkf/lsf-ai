@@ -31,7 +31,7 @@ cd project ./lsf-ai
 npm install
 ```
 
-2. Add a `.env` file into the `./src` folder then configure it with you details : 
+2. Add a `.env` file into the `./src` API folder then configure it with you details : 
 ```sh
 DB_HOST=localhost
 DB_USER=root
@@ -44,6 +44,7 @@ DB_DATABASE=db_name
 
 Start the Api with:
 ```sh
+cd ./LsfAi.Api/src/
 node app.js
 ```
 
