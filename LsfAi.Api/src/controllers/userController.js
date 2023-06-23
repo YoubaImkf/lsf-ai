@@ -10,6 +10,7 @@ const getAllUsers = async (req, res) => {
     const users = await userService.getUsers();
     res.json(users);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to retrieve users' });
   }
 };
@@ -30,6 +31,7 @@ const getUserById = async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to retrieve user' });
   }
 };
@@ -50,6 +52,7 @@ const createUser = async (req, res) => {
     const newUser = await userService.createUser(userData);
     res.status(201).json(newUser);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to create user' });
   }
 };
@@ -72,6 +75,7 @@ const updateUser = async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to update user' });
   }
 };
@@ -92,7 +96,35 @@ const deleteUser = async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to delete user' });
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await userService.login(email, password);
+    if (user) {
+      // res.json(user);
+      res.json({ message: 'User connected' });
+    } else {
+      res.status(401).json({ error: 'Invalid credentials' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to authenticate user' });
+  }
+};
+
+const register = async (req, res) => {
+  try {
+    const { email, username, password, role } = req.body;
+    const newUser = await userService.register(email, username, password, role);
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to register user' });
   }
 };
 
@@ -101,5 +133,7 @@ module.exports = {
     getUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    login,
+    register
 };
