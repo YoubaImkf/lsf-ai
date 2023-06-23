@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const usersRouter = require('./routes/usersRoute.js')
+const signRouter = require('./routes/signRoute.js')
 const cors = require('cors');
 // Middleware for parsing data into JSON
 app.use(express.json())
@@ -10,6 +11,10 @@ app.use(cors());
 
 // User routes
 app.use('/users', usersRouter);
+
+// Sign routes
+app.use('/signs', signRouter);
+
 
 // Middleware for error handling
 app.use((err, req, res, next) => {
