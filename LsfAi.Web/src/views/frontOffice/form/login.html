@@ -22,13 +22,17 @@
     <div class="form-container">
       <form id="login-form">
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Entrez votre email" />
+        <input type="email" name="email" placeholder="Entrez votre email" />
+        <small id="email-error" class="error-message"></small>
+        
         <label for="password">Mot de passe</label>
         <input
           type="password"
           name="password"
           placeholder="Entrez votre mot de passe"
         />
+        <small id="password-error" class="error-message"></small>
+
         <input type="submit" value="Connexion" />
       </form>
 
