@@ -73,7 +73,7 @@ div.form-container form input::placeholder{
 div.form-container form input[type="text"], input[type="email"], input[type="password"]{
     width: 100%;
     border:none;
-    padding-left: 13px;
+    padding-inline: 13px;
     margin: 5px 0 5px 0;
 }
 
