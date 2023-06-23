@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const usersRouter = require('./routes/usersRoute.js')
-
+const cors = require('cors');
 // Middleware for parsing data into JSON
-app.use(bodyParser.json());
+app.use(express.json())
+
+// Middleware for active CORS
+app.use(cors());
 
 // User routes
 app.use('/users', usersRouter);
