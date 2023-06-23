@@ -142,20 +142,22 @@ const userService = {
    * @param {string} role - The user's role.
    * @returns {Promise<object>} A promise that resolves to the created user object.
    */
-  register: (email, username, password, role) => {
+  register: (email, username, password) => {
     return new Promise(async (resolve, reject) => {
       try {
         const hashedPassword = await bcrypt.hash(password, 10); // 10: number of times it should execute its hashing algorithm
-        const query = 'INSERT INTO `user` (email, username, password, role) VALUES (?, ?, ?, ?)';
-        const values = [email, username, hashedPassword, role];
+        const query = "INSERT INTO `user` (email, username, password, role) VALUES (?, ?, ?, 'user')";
+        const values = [email, username, hashedPassword];
         console.log(values);
 
         db.query(query, values, (error, result) => {
           if (error) {
+            // If there's an error, reject the promise with the error object
             reject(error);
           } else {
             const insertedUserId = result.insertId;
-            resolve({ id: insertedUserId, email, username, role });
+            // Resolve the promise with an object containing the user's ID, email, and username
+            resolve({ id: insertedUserId, email, username});
           }
         });
       } catch (error) {

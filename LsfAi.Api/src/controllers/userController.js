@@ -101,13 +101,21 @@ const deleteUser = async (req, res) => {
   }
 };
 
+/**
+ * Connecte un utilisateur.
+ * @param {Object} req - L'objet de requête.
+ * @param {Object} res - L'objet de réponse.
+ * @returns {Promise<void>}
+ */
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+     // Call the login function from the userService
     const user = await userService.login(email, password);
     if (user) {
       // res.json(user);
       res.json({ message: 'User connected' });
+      // console.log(user.email);
     } else {
       res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -117,10 +125,17 @@ const login = async (req, res) => {
   }
 };
 
+/**
+ * Enregistre un nouvel utilisateur.
+ * @param {Object} req - L'objet de requête.
+ * @param {Object} res - L'objet de réponse.
+ * @returns {Promise<void>}
+ */
 const register = async (req, res) => {
   try {
-    const { email, username, password, role } = req.body;
-    const newUser = await userService.register(email, username, password, role);
+    const { email, username, password} = req.body;
+    // Call the register function from the userService
+    const newUser = await userService.register(email, username, password);
     res.status(201).json(newUser);
   } catch (error) {
     console.error(error);
