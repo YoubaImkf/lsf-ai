@@ -143,6 +143,25 @@ const register = async (req, res) => {
   }
 };
 
+/**
+ * Vérifie si l'email existe déjà.
+ * @route POST /check-email-exists
+ * @param {Object} req - L'objet de requête.
+ * @param {Object} res - L'objet de réponse.
+ * @returns {Promise<void>}
+ */
+const checkEmailExists = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const emailExists = await userService.checkEmailExists(email);
+    res.json({ emailExists });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to check email existence' });
+  }
+};
+
+
 module.exports = {
     getAllUsers,
     getUserById,
@@ -150,5 +169,6 @@ module.exports = {
     updateUser,
     deleteUser,
     login,
-    register
+    register,
+    checkEmailExists
 };

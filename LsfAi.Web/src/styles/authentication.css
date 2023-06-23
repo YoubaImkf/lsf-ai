@@ -24,6 +24,10 @@ div.title-container h2{
 }
 
 /************ FORM ***********************/
+form {
+    display: flex;
+    flex-direction: column;
+}
 
 div.form-container{
     /* margin-top:20%; */
@@ -50,16 +54,31 @@ div.form-container form input{
     outline: none;
 }
 
+.error-input {
+    box-shadow: 0 0 4px #FE5757;
+}
+
+.error-message{
+    color: #FE5757;
+    font-family: 'Montserrat-Medium';
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
 div.form-container form input::placeholder{
     font-family: 'Montserrat-Medium';
     color: #8C8C8C;
 }
 
-div.form-container form input[type="text"], input[type="password"]{
+div.form-container form input[type="text"], input[type="email"], input[type="password"]{
     width: 100%;
     border:none;
-    padding-left: 13px;
-    margin: 5px 0 25px 0;
+    padding-inline: 13px;
+    margin: 5px 0 5px 0;
+}
+
+div.form-container form input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border: 1px solid rgb(148,148,148, 0.3);
 }
 
 /******** Button ********/

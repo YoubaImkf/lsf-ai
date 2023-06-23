@@ -23,11 +23,12 @@
       <form id="registration-form">
         <label for="email">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="email"
           placeholder="Entrez votre email"
         />
+        <small id="email-error" class="error-message"></small>
         <label for="username">Nom d'utilisateur</label>
         <input
           type="text"
@@ -35,13 +36,16 @@
           name="username"
           placeholder="Entrez un nom d'utilisateur"
         />
-        <label for="password">Mot de passe</label><br />
+        <small id="username-error" class="error-message"></small>
+        <label for="password">Mot de passe</label>
         <input
           type="password"
           id="password"
           name="password"
           placeholder="Entrez votre mot de passe"
         />
+        <small id="password-error" class="error-message"></small>
+
         <input type="submit" value="S'inscrire" />
       </form>
 
