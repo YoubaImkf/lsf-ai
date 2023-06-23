@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname)));
 //it does'nt work because it doesn't find the css files :'(
 
 //route for exercise sign reproduction
-app.get('/camera', (req, res) => {
+app.get('/reproduction', (req, res) => {
   res.sendFile(path.join(__dirname, './views/frontOffice/exercises/reproduction.html'));
 });
 
