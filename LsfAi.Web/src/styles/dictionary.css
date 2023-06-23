@@ -32,7 +32,7 @@
 
 .dictionary-header {
   background-color: var(--second-bg-color);
-  box-shadow: 0 1px 4px var(--shadow-color);
+  box-shadow: 0 4px 10px var(--shadow-color);
   padding: 0.8em 0 0.8em 0.5em;
 }
 
@@ -58,8 +58,8 @@
   margin-top: 0.5em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5em;
+  justify-content: left;
+  gap: 1em;
 }
 
 .sign-card {
@@ -67,12 +67,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  aspect-ratio: 5/7;
-  width: 5em;
+  
+  width: 4.5em;
+  height: 7em;
   margin-top: 1em;
 
 
-  box-shadow: 1px 5px 5px var(--shadow-color);
+  box-shadow: 0 2px 10px var(--shadow-color);
+
   border-radius: 0.7em;
 
   background-color: var(--main-bg-color);
@@ -117,24 +119,29 @@
  *****************/
 
 @media (min-width: 768px) {
-  
-  .mobile-only{
-    display: none;
-  }
-  
-  .desktop-only{
-    display: block;
-  }
 
   .container{
-
+    align-items: center;
   }
 
   .main-nav{
     order: 1;
-    width: 80%;  
+    width: 80%;
     align-self: center;
-    padding
+    align-items: center;
+
+    border-radius: 1em;
+    box-shadow: 1px 4px 10px var(--shadow-color);
+
+    margin-top: 2em;
+    padding: 0.5em 0;
+
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  .main-nav span{
+    font-size: 1.4em;
   }
 
   .dictionary-header{
@@ -142,9 +149,40 @@
     background-color: transparent;
     box-shadow: none;
     padding: 0;
+    text-align: center;
+    margin-top: 2.5em;
+  }
+
+  .dictionary-header__heading{
+    font-family: 'Montserrat-SemiBold';
+    font-size: 3em;
+    font-weight: 700;
   }
 
   .dictionary-main{
     order: 3;
+    width: 65%;
+  }
+  
+  .dictionary-main__subheading{
+    font-size: 1.5em;      
+  }
+
+  .dictionary-main__content{
+    gap: 2.5em;
+  }
+
+  .sign-card{
+    width: 6.75em;
+    height: 10.5em;
+  }
+
+  .sign-card__image{
+    width: 7em;
+    height: 7em;
+  }
+  
+  .sign-card__definition{
+    font-size: 1.7em;
   }
 }
