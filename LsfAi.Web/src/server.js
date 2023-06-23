@@ -27,6 +27,12 @@ app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, './views/frontOffice/form/register.html'));
 });
 
+//Route for Dictionnary 
+
+app.get('/training', (req, res) => {
+  res.sendFile(path.join(__dirname, './views/frontOffice/exercises/training.html'));
+});
+
 
 app.listen(port, () => {
   console.log(`Express running on port ${port}`);

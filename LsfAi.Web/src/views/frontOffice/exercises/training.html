@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+    <script type="module" defer src="../../../app.js"></script>
+    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    <title>reproduction</title>
+
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/popup.css">
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+</head>
+
+<body>
+    <script type="module">
+        import HeaderComponent from '../../../components/HeaderComponent.js';
+        import PopupComponent from '../../../components/PopupComponent.js';
+
+        const headerComponent = new HeaderComponent();
+        const titleText = 'Entraînement';
+
+        // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+        const headerContainer = document.querySelector('.header-container');
+
+        // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
+        headerContainer.innerHTML = headerComponent.render(titleText);
+
+
+        const popupComponent = new PopupComponent();
+        const popupContainer = document.querySelector('.popup-container');
+        popupContainer.innerHTML = popupComponent.render();
+
+    </script>
+
+    <div class="header-container"></div>
+
+    <div class="tutorial_video">
+        <iframe src="https://www.youtube.com/embed/"> </iframe>
+    </div>
+    <section class="webcam-section">
+        <div id="webcam-container"></div>
+    </section>
+
+    <div id="label-container"></div>
+
+
+    <div class="popup-container-valid">
+    </div>
+
+    <div class="popup-container" style="display: none;">
+
+    </div>
+
+
+</body>
+
+</html>
