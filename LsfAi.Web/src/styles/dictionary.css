@@ -1,0 +1,150 @@
+/****************
+ *    MOBILE    *
+ ****************/
+
+/**
+ *  Dictionary Page
+ */
+
+/**
+ *  Dictionary Container (body)
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  /*background-position: 10px;*/
+  background:
+    url(../assets/backgrounds/mobile-dictionary-bg.png) no-repeat center center fixed,
+    var(--main-bg-color);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/**
+ *  Dictionary Header
+ */
+
+.dictionary-header {
+  background-color: var(--second-bg-color);
+  box-shadow: 0 1px 4px var(--shadow-color);
+  padding: 0.8em 0 0.8em 0.5em;
+}
+
+.dictionary-header__heading {
+  font-size: 1.2rem;
+}
+
+/**
+ *  Dictionary Main
+ */
+
+.dictionary-main {
+  margin: 1em 1em 0 1em;
+  flex-grow: 1;
+}
+
+.dictionary-main__subheading {
+  font-size: 0.9rem;
+  color: var(--second-text-color);
+}
+
+.dictionary-main__content {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.sign-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  aspect-ratio: 5/7;
+  width: 5em;
+  margin-top: 1em;
+
+
+  box-shadow: 1px 5px 5px var(--shadow-color);
+  border-radius: 0.7em;
+
+  background-color: var(--main-bg-color);
+}
+
+.sign-card__image {
+  width: 5em;
+  height: 5em;
+}
+
+.sign-card__definition {
+  font-weight: bold;
+}
+
+/**
+ *  Main Nav 
+ */
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: var(--second-bg-color);
+  box-shadow: 0 -1px 4px var(--shadow-color);
+  padding: 0.8em 0 0.8em 0.5em;
+}
+
+.main-nav__bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-nav__bloc__icon {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+
+/*****************
+ *    DESKTOP    *
+ *****************/
+
+@media (min-width: 768px) {
+  
+  .mobile-only{
+    display: none;
+  }
+  
+  .desktop-only{
+    display: block;
+  }
+
+  .container{
+
+  }
+
+  .main-nav{
+    order: 1;
+    width: 80%;  
+    align-self: center;
+    padding
+  }
+
+  .dictionary-header{
+    order: 2;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .dictionary-main{
+    order: 3;
+  }
+}
