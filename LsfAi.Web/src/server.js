@@ -6,13 +6,14 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname)));
 
+
+//Currently routes are in the server file, but they should be in a separate file route folder, like the backend but
+//it does'nt work because it doesn't find the css files :'(
+
 //route for exercise sign reproduction
 app.get('/camera', (req, res) => {
   res.sendFile(path.join(__dirname, './views/frontOffice/exercises/reproduction.html'));
 });
-
-
-// route form
 
 //route for login
 
