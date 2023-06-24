@@ -1,6 +1,6 @@
-import WebCamComponent from './services/WebcamService.js';
+import WebCamComponent from '../services/WebcamService.js';
 
-const modelURL = './models/';
+const modelURL = '../models/';
 const containerId = 'webcam-container';
 
 const webCamComponent = new WebCamComponent(modelURL, containerId);

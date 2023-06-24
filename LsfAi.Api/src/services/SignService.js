@@ -2,7 +2,7 @@
 //must put on media first
 //create a media
 
-const db = require('../config/database');
+const db = require('../../config/database');
 const signService = {
     /**
      * Get all signs image and its definition from the database.

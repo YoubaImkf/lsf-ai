@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
-const usersRouter = require('./routes/usersRoute.js')
-const signRouter = require('./routes/signRoute.js')
+const usersRouter = require('./src/routes/usersRoute.js')
+const signRouter = require('./src/routes/signRoute.js')
+
+// Middleware used to enable CORS with various options.
 const cors = require('cors');
+
 // Middleware for parsing data into JSON
 app.use(express.json())
 
