@@ -62,6 +62,10 @@
   gap: 1em;
 }
 
+/**
+ *  Sign Card
+ */
+
 .sign-card {
   display: flex;
   flex-direction: column;
@@ -72,7 +76,7 @@
   height: 7em;
   margin-top: 1em;
 
-
+  cursor: pointer;
   box-shadow: 0 2px 10px var(--shadow-color);
 
   border-radius: 0.7em;
@@ -87,6 +91,79 @@
 
 .sign-card__definition {
   font-weight: bold;
+}
+
+/**
+ *  Letter Popup 
+ */
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.letter-popup{  
+  border-radius: 1em;
+  background-color: var(--second-bg-color);
+  box-shadow: 0 4px 10px var(--shadow-color);
+
+  width: 22rem;
+  height: 27rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+
+  cursor: default;
+}
+
+.letter-popup__close{
+  padding-right: 0.4em;
+  font-size: 3.5em;
+  font-family: 'Montserrat-SemiBold';
+  align-self: flex-end;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.letter-popup__definition{
+  font-size: 3em;
+}
+
+.letter-popup a{
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+
+  border-top: 1px solid var(--main-color);
+
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+  
+  background-color: var(--main-color);
+  color: white;
+
+  font-family: 'Montserrat-SemiBold';
+  font-size: 1.2em;
+  
+  cursor: pointer;
+
+  transition: 200ms ease-in-out;
+
+}
+
+.letter-popup a:hover{
+  
+  background-color: var(--main-color-light);
+  color: var(--main-color);
 }
 
 /**
@@ -124,6 +201,9 @@
     align-items: center;
   }
 
+  /**
+   *  Main Nav
+   */
   .main-nav{
     order: 1;
     width: 80%;
@@ -144,6 +224,9 @@
     font-size: 1.4em;
   }
 
+  /**
+   *  Dictionary Header
+   */
   .dictionary-header{
     order: 2;
     background-color: transparent;
@@ -159,6 +242,9 @@
     font-weight: 700;
   }
 
+  /**
+   *  Dictionary Main
+   */  
   .dictionary-main{
     order: 3;
     width: 65%;
@@ -172,6 +258,9 @@
     gap: 2.5em;
   }
 
+  /**
+   *  Sign Card
+   */
   .sign-card{
     width: 6.75em;
     height: 10.5em;

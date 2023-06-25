@@ -4,4 +4,9 @@
   --shadow-color: rgba(0, 0, 0, 0.25);
   --main-bg-color: #F5F5F5;
   --second-bg-color: #FFFFFF;
+
+  --main-color : #FF6928;
+  --main-color-light : #FFE9DF;
+
+  --main-admin-color : #224DAF;
 }
