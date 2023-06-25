@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion</title>
+
+    <link rel="stylesheet" href="../../../styles/app.css" />
+    <link rel="stylesheet" href="../../../styles/reproduction.css" />
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css" />
+    <link rel="stylesheet" href="../../../styles/authentication.css" />
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg" />
+  </head>
+
+  <body>
+    <div class="title-container">
+      <h1>Connexion</h1>
+      <h2>Content de vous revoir !</h2>
+    </div>
+
+    <div class="form-container">
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Entrez votre email" />
+        <small id="email-error" class="error-message"></small>
+        
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Entrez votre mot de passe"
+        />
+        <small id="password-error" class="error-message"></small>
+
+        <input type="submit" value="Connexion" />
+      </form>
+
+      <div class="account-button">
+        <p>Vous n'avez pas de compte</p>
+        <a href="register">Créer un compte</a>
+      </div>
+    </div>
+    <script src="../../../scripts/loginScript.js"></script>
+  </body>
+</html>

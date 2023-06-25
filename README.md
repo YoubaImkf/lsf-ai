@@ -1,14 +1,13 @@
 # LSF AI 🤙
 
-This project glues `js vanilla` and
-`node.js` together.
+This project have been coded in js vanilla.
 
 ## 🎉 Getting started 
 
 
 ### The prerequisites
 
-You must have node with npm and node installed.
+You must have npm and node installed.
 
 ### 👼 Creating the project 
 
@@ -31,7 +30,7 @@ cd project ./lsf-ai
 npm install
 ```
 
-2. Add a `.env` file into the `./src` API folder then configure it with you details : 
+2. Add a `.env` file into the `./LsfAi.Api/` source folder then configure it with you details : 
 ```sh
 DB_HOST=localhost
 DB_USER=root
@@ -44,11 +43,12 @@ DB_DATABASE=db_name
 
 Start the Api with:
 ```sh
-cd ./LsfAi.Api/src/
-node app.js
+cd ./LsfAi.Api/
+npm start
 ```
 
 Start the web app with:
 ```sh
+cd ./LsfAi.Web/
 npm start
 ```

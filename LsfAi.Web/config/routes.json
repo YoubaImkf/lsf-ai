@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "path": "/reproduction",
+      "name": "exercises/reproduction.html"
+    },
+    {
+      "path": "/login",
+      "name": "form/login.html"
+    },
+    {
+      "path": "/register",
+      "name": "form/register.html"
+    }
+  ]
+}
