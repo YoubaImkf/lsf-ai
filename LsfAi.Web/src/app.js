@@ -1,7 +1,14 @@
-import WebCamComponent from './services/WebcamService.js';
+const express = require('express');
+const path = require('path');
+const routes = require('./src/routes/routes')
 
-const modelURL = './models/';
-const containerId = 'webcam-container';
+const app = express();
+const port = 3000;
 
-const webCamComponent = new WebCamComponent(modelURL, containerId);
-webCamComponent.init();
+app.use(express.static(path.join(__dirname, 'src')));
+
+app.use('/', routes);
+
+app.listen(port, () => {
+  console.log(`Express running on port ${port}`);
+});
