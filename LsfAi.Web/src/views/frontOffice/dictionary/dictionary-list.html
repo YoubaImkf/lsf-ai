@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PERMISSION -->
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <!-- TENSERFLOW -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+    <!-- COMPONENTS -->
+    <script type="module" defer src="../../../app.js"></script>
+    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+
+    <title>Dictionnaire LSF</title>
+
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/dictionary.css" rel="stylesheet" />
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+  </head>
+
+  <body class="container">
+    <!--
+    <script type="module">
+      import HeaderComponent from '../../../components/HeaderComponent.js';
+
+      const headerComponent = new HeaderComponent();
+      const titleText = 'Reproduction de signe';
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const headerContainer = document.querySelector('.header-container');
+
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
+      headerContainer.innerHTML = headerComponent.render(titleText);
+    </script>
+    
+    <div class="header-container"></div>
+    -->
+    <header class="dictionary-header">
+      <h1 class="dictionary-header__heading">Dictionnaire</h1>
+    </header>
+
+    <main class="dictionary-main">
+      <h2 class="dictionary-main__subheading">Alphabet</h2>
+      <section class="dictionary-main__content">
+        <div class="sign-card">
+          <img class="sign-card__image" src="../../../assets/a.png" alt="Image A" title="Lettre A">
+          <h3 class="sign-card__definition">A</h3>
+          <div class="letter-popup hide">
+            <div class="flex-container">
+              <span class="letter-popup__close">&times;</span>
+              <img class="letter-popup__image" src="../../../assets/a.png" alt="Image A">
+              <h3 class="letter-popup__definition" >A</h3>
+              <a href="">S'entraîner</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="main-nav">
+      <a class="desktop-only" href="/">
+        <div class="main-nav__bloc">
+          <img class="main-nav__bloc__icon" src="../../../assets/logo_LSF_AI.svg"
+            alt="Accueil" />
+        </div>
+      </a>
+      <a href="/">
+        <div class="main-nav__bloc">
+          <img id="nav-home-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/home-icon.svg"
+            alt="Accueil" />
+          <span>Accueil</span>
+        </div>
+      </a>
+      <a href="/exercise">
+        <div class="main-nav__bloc">
+          <img id="nav-exercise-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/exercise-icon.svg"
+            alt="Liste des exercices" />
+          <span>Exercices</span>
+        </div>
+      </a>
+      <a href="/dictionary">
+        <div class="main-nav__bloc">
+          <img id="nav-dictionary-icon" class="main-nav__bloc__icon mobile-only"
+            src="../../../assets/menu-icons/dictionary-icon.svg" alt="Dictionnaire de signes" />
+          <span>Dictionnaire</span>
+        </div>
+      </a>
+      <a href="/account">
+        <div class="main-nav__bloc">
+          <img id="nav-h=account-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/account-icon.svg"
+            alt="Mon Compte" />
+          <span>Compte</span>
+        </div>
+      </a>
+    </nav>
+
+  </body>
+  <script defer src="../../../scripts/dictionary.js"></script>
+
+</html>
