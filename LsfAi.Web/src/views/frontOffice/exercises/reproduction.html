@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+    <script type="module" defer src="../../../scripts/webcamScript.js"></script>
+    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    <title>Reproduction 🤙</title>
 
-<head>
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
+    <link rel="icon" href="../../../assets/favicon48x48.svg">
+  </head>
+  <body>
+    <script type="module">
+      import HeaderComponent from '../../../components/HeaderComponent.js';
 
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Permissions-Policy" content="camera 'self'" />
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
-  <script type="module" defer src="../../../scripts/webcamScript.js"></script>
-  <script type="module" defer src="../../../components/HeaderComponent.js"></script>
-  <title>Reproduction 🤙</title>
+      const headerComponent = new HeaderComponent();
+      const titleText = 'Reproduction de signe';
 
-  <link href="../../../styles/app.css" rel="stylesheet" />
-  <link href="../../../styles/reproduction.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
-  <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
-</head>
+      const headerContainer = document.querySelector('.header-container');
+      headerContainer.innerHTML = headerComponent.render(titleText);
+    </script>
 
-<body>
-  <script type="module">
-    import HeaderComponent from '../../../components/HeaderComponent.js';
+    <div class="header-container"></div>
 
-    const headerComponent = new HeaderComponent();
-    const titleText = 'Reproduction de signe';
+    <div class="tutorial_video">
+      <!--<iframe src="https://www.youtube.com/embed/"> </iframe>-->
+      <img src="../../../assets/images/video_reproduire.png" alt="Lettre A">
+    </div>
+    
+    <section class="webcam-section">
+      <div id="webcam-container"></div>
+    </section>
 
-    // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
-    const headerContainer = document.querySelector('.header-container');
-
-    // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
-    headerContainer.innerHTML = headerComponent.render(titleText);
-  </script>
-
-  <div class="header-container"></div>
-
-  <div class="tutorial_video">
-    <!--<iframe src="https://www.youtube.com/embed/"> </iframe>-->
-    <img src="../../../assets/images/video_reproduire.png" alt="Lettre A">
-  </div>
-  <section class="webcam-section">
-    <div id="webcam-container"></div>
-  </section>
-
-  <div id="label-container"></div>
+    <div id="label-container"></div>
 
 
-</body>
-
+  </body>
 </html>
