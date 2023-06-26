@@ -10,11 +10,11 @@
     },
     {
       "name": "/register",
-      "path": "form/register.html"
+      "path": "../views/frontOffice/form/register.html"
     },
     {
       "name": "/dictionary",
-      "path": "dictionary/dictionary-list.html"
+      "path": "../views/frontOffice/dictionary/dictionary-list.html"
     }
   ]
 }
