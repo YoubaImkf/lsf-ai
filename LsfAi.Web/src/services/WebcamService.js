@@ -17,8 +17,8 @@ class WebCamComponent {
       this.maxPredictions = this.model.getTotalClasses();
   
       const flip = true; // whether to flip the webcam
-      const width = 200;
-      const height = 200;
+      const width = 400;
+      const height = 496;
       this.webcam = new tmImage.Webcam(width, height, flip);
       await this.webcam.setup();
       this.webcam.play();
@@ -32,7 +32,7 @@ class WebCamComponent {
   
     async loop() {
       this.webcam.update();
-      await this.predict();
+      // await this.predict();
       window.requestAnimationFrame(() => this.loop());
     }
 
