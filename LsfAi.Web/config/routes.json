@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "name": "/reproduction",
-      "path": "../views/frontOffice/exercises/reproduction.html"
+      "name": "/",
+      "path": "../views/frontOffice/home.html"
     },
     {
       "name": "/login",
