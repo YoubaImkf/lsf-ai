@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../styles/app.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles/nav-bar.css" />
     <title>Acceuil</title>
-</head>
-<body>
-    <h1> Ceci est l'accueil</h1>
+  </head>
+  <body>
+    <script type="module">
+      //Import components
+      import MainNavComponent from "../../../components/MainNavComponent.js";
 
+      //Create components
+      const mainNavComponent = new MainNavComponent();
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const mainNavContainer = document.querySelector(".main-nav-container");
+
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+      mainNavContainer.innerHTML = mainNavComponent.render();
+    </script>
+
+    <div class="main-nav-container"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Ceci est l'accueil</h1>
 
     <script>
-    // Load the Service Worker
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
-            navigator.serviceWorker.register("/src/service-worker.js").then(function(registration) {
-            console.log("Service Worker registered with scope:", registration.scope);
-        }).catch(function(error) {
-            console.log("Service Worker registration failed:", error);
-        });
+      // Load the Service Worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/src/service-worker.js")
+            .then(function (registration) {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch(function (error) {
+              console.log("Service Worker registration failed:", error);
+            });
         });
       }
     </script>
-</body>
+  </body>
 </html>
