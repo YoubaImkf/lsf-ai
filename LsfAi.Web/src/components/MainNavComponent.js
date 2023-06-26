@@ -1,4 +1,4 @@
-class SignCardComponent {
+class MainNavComponent {
   render() {
     return `
     <nav class="main-nav">
@@ -41,4 +41,4 @@ class SignCardComponent {
   }
 }
 
-export default SignCardComponent;
+export default MainNavComponent;
