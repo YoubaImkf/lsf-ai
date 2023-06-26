@@ -1,0 +1,8 @@
+div.popup-container-valid{
+    position:absolute;
+    width: 86px;
+    height:74px;
+    background-color: red;
+    border-radius:9px;
+    bottom:50px;
+}
