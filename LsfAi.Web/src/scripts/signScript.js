@@ -5,31 +5,8 @@ let signsData;
 
 window.onload = () => {
   feedDataToHtml();
+  addClick()
 
-  // letterDiv : signCard, aka one letter div
-  // letterPopupBox : modal popup ith letter details
-  let letterDiv, letterPopupBox;
-
-  // After click on sign card -> popup appears with details 
-  const letterPopup = (ev) => {
-    letterDiv = ev.currentTarget;
-    letterPopupBox = letterDiv.querySelector('.letter-popup');
-
-    letterPopupBox.classList.contains('hide')
-      ? letterPopupBox.classList.remove('hide')
-      : letterPopupBox.classList.add('hide');
-
-    let closeBtn = letterPopupBox.querySelector('.letter-popup__close');
-    closeBtn.addEventListener('click', letterPopup);
-  }
-
-  //get all signCards displayed
-  const signCards = document.getElementsByClassName('sign-card');
-
-  //give them all click event (popup appearing)
-  for (let signCard of signCards) {
-    signCard.addEventListener('click', letterPopup);
-  }
 }
 
 const feedDataToHtml = async () => {
@@ -65,12 +42,28 @@ const feedDataToHtml = async () => {
       definition.textContent = signData.definition;
     }
   }
+  // After click on sign card -> popup appears with details 
+  const letterPopup = (ev) => {
+    letterDiv = ev.currentTarget;
+    letterPopupBox = letterDiv.querySelector('.letter-popup');
+    
+    letterPopupBox.classList.contains('hide') 
+    ? letterPopupBox.classList.remove('hide')
+    : letterPopupBox.classList.add('hide');
 
+    let closeBtn = letterPopupBox.querySelector('.letter-popup__close');
+    closeBtn.addEventListener('click', letterPopup );
+  }
+
+  //get all signCards displayed
+  const signCards = document.getElementsByClassName('sign-card');
+  //give them all click event (popup appearing)
+  for (let signCard of signCards) {
+    signCard.addEventListener('click', letterPopup);
+  }
 }
 
 const getAllSigns = async () => {
   const response = await fetch("http://localhost:8282/signs");
   signsData = await response.json();
 }
-
-
