@@ -14,7 +14,7 @@ function postData(data) {
       if (response.ok) {
         console.log("Successful login");
         // redirige vers page...
-        window.location.href = "http://localhost:3000/reproduction";
+        window.location.href = "http://localhost:3000/dictionary";
       } else {
         throw new Error("Login failed");
       }
