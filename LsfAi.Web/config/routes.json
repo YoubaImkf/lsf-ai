@@ -1,16 +1,16 @@
 {
   "routes": [
     {
-      "path": "/reproduction",
-      "name": "exercises/reproduction.html"
+      "name": "/reproduction",
+      "path": "../views/frontOffice/exercises/reproduction.html"
     },
     {
-      "path": "/login",
-      "name": "form/login.html"
+      "name": "/login",
+      "path": "../views/frontOffice/form/login.html"
     },
     {
-      "path": "/register",
-      "name": "form/register.html"
+      "name": "/register",
+      "path": "../views/frontOffice/form/register.html"
     }
   ]
 }
