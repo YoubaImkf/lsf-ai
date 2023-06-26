@@ -1,4 +1,3 @@
-
 // letterDiv : signCard, aka one letter div
 // letterPopupBox : modal popup ith letter details
 let letterDiv, letterPopupBox;
@@ -20,7 +19,7 @@ const letterPopup = (ev) => {
 const signCards = document.getElementsByClassName('sign-card');
 
 //give them all click event (popup appearing)
-for (signCard of signCards) {
+for (let signCard of signCards) {
   signCard.addEventListener('click', letterPopup);
 }
 

@@ -12,33 +12,19 @@
     <script
       src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
     <!-- COMPONENTS -->
-    <script type="module" defer src="../../../app.js"></script>
-    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    <script type="module" defer src="../../../../app.js"></script>
+    <script defer src="../../../scripts/dictionary.js"></script>
+    <!-- CSS -->
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/dictionary.css" rel="stylesheet" />
+    <!-- ICON -->
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
 
     <title>Dictionnaire LSF</title>
 
-    <link href="../../../styles/app.css" rel="stylesheet" />
-    <link href="../../../styles/dictionary.css" rel="stylesheet" />
-    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
   </head>
 
   <body class="container">
-    <!--
-    <script type="module">
-      import HeaderComponent from '../../../components/HeaderComponent.js';
-
-      const headerComponent = new HeaderComponent();
-      const titleText = 'Reproduction de signe';
-
-      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
-      const headerContainer = document.querySelector('.header-container');
-
-      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
-      headerContainer.innerHTML = headerComponent.render(titleText);
-    </script>
-    
-    <div class="header-container"></div>
-    -->
     <header class="dictionary-header">
       <h1 class="dictionary-header__heading">Dictionnaire</h1>
     </header>
@@ -46,20 +32,7 @@
     <main class="dictionary-main">
       <h2 class="dictionary-main__subheading">Alphabet</h2>
       <section class="dictionary-main__content">
-        <div class="sign-card">
-          <img class="sign-card__image" src="../../../assets/a.png" alt="Image A" title="Lettre A">
-          <h3 class="sign-card__definition">A</h3>
-          <div class="letter-popup hide">
-            <div class="flex-container">
-              <span class="letter-popup__close">&times;</span>
-              <img class="letter-popup__image" src="../../../assets/a.png" alt="Image A">
-              <h3 class="letter-popup__definition" >A</h3>
-              <a href="">S'entraîner</a>
-            </div>
-          </div>
-        </div>
       </section>
-
     </main>
 
     <nav class="main-nav">
@@ -100,6 +73,6 @@
     </nav>
 
   </body>
-  <script defer src="../../../scripts/dictionary.js"></script>
+  <script type="module" defer src="../../../scripts/signScript.js"></script>
 
 </html>
