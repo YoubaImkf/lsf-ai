@@ -5,6 +5,10 @@
       "path": "../views/frontOffice/exercises/reproduction.html"
     },
     {
+      "name": "/training",
+      "path": "../views/frontOffice/exercises/training.html"
+    },
+    {
       "name": "/login",
       "path": "../views/frontOffice/form/login.html"
     },
@@ -16,5 +20,6 @@
       "name": "/dictionary",
       "path": "../views/frontOffice/dictionary/dictionary-list.html"
     }
+
   ]
 }
