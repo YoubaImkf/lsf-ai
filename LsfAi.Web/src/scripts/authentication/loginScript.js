@@ -12,12 +12,20 @@ function postData(data) {
   })
     .then((response) => {
       if (response.ok) {
-        console.log("Successful login");
-        // redirige vers page...
-        window.location.href = "http://localhost:3000/dictionary";
+        return response.json(); // Parse the response as JSON
       } else {
         throw new Error("Login failed");
       }
+    })
+    .then((data) => {
+      // Access the user properties (role and username)
+      const { role, username } = data;
+      // Store the user properties in the session storage
+      sessionStorage.setItem('user', JSON.stringify(data));
+      // sessionStorage.setItem("role", role);
+      // sessionStorage.setItem("username", username);
+
+      window.location.href = "http://localhost:3000/dictionary";
     })
     .catch((error) => {
       emailError.textContent = "Your email or password is incorrect";
@@ -58,7 +66,6 @@ form.addEventListener("submit", (event) => {
   // Get form values
   const email = form.elements.email.value;
   const password = form.elements.password.value;
-  console.log(email, password);
 
   if (!validateForm()) {
     return;
