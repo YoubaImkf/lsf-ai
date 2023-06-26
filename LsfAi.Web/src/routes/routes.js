@@ -5,8 +5,8 @@ const router = express.Router('');
 
 // Définir les routes à partir du fichier routes.json
 routeJson.routes.forEach((route) => {
-    router.get(route.path, (req, res) => {
-      res.sendFile(path.join(__dirname, `../views/frontOffice/${route.name}`));
+    router.get(route.name, (req, res) => {
+      res.sendFile(path.join(__dirname, route.path));
     });
   });
   
