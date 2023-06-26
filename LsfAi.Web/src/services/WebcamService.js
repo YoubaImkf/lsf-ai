@@ -36,13 +36,10 @@ class WebCamComponent {
       window.requestAnimationFrame(() => this.loop());
     }
 
-    async predict() {
-      let prediction;
-      if (this.isIos) {
-        prediction = await this.model.predict(this.webcam.webcam);
-      } else {
-        prediction = await this.model.predict(this.webcam.canvas);
-      }
+  async init() {
+    const modelURL = this.modelURL + 'model.json';
+    const metadataURL = this.modelURL + 'metadata.json';
+
 
       //TOUT CE QUI EST EN COMMENTAIRE SERT A LA PHASE DE TEST
 
@@ -99,5 +96,6 @@ class WebCamComponent {
         // }
     }
   }
-  
-  export default WebCamComponent;
+}
+
+export default WebCamComponent;
