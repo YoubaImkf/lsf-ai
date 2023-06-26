@@ -114,7 +114,7 @@ const login = async (req, res) => {
     const user = await userService.login(email, password);
     if (user) {
       // res.json(user);
-      res.json({ role: user.role, username: user.username});
+      res.json({ role: user.role, username: user.username, email : user.email});
     } else {
       res.status(401).json({ error: 'Invalid credentials' });
     }

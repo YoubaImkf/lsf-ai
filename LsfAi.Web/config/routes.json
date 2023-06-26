@@ -17,6 +17,10 @@
       "path": "../views/frontOffice/form/register.html"
     },
     {
+      "name": "/account",
+      "path": "../views/frontOffice/form/account.html"
+    },
+    {
       "name": "/dictionary",
       "path": "../views/frontOffice/dictionary/dictionary-list.html"
     },
@@ -24,6 +28,5 @@
       "name": "/progress",
       "path": "../views/frontOffice/progress/progress-list.html"
     }
-
   ]
 }
