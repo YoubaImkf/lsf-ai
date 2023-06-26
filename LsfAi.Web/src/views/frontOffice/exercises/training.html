@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+        <script type="module" defer src="../../../scripts/webcamScript.js"></script>
+    <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    <title>Entraînement</title>
+
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/popup.css">
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+</head>
+
+<body>
+    <script type="module">
+        import HeaderComponent from '../../../components/HeaderComponent.js';
+        import PopupComponent from '../../../components/PopupComponent.js';
+
+        const headerComponent = new HeaderComponent();
+        const titleText = 'Entraînement';
+
+        // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+        const headerContainer = document.querySelector('.header-container');
+
+        // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
+        headerContainer.innerHTML = headerComponent.render(titleText);
+    </script>
+
+    <div class="header-container"></div>
+
+    <div class="tutorial_video">
+      <img src="../../../assets/images/video_reproduire.png" alt="Lettre A">
+
+    </div>
+
+    <section class="webcam-section">
+        <div id="webcam-container"></div>
+    </section>
+        
+        <div class="popup-container-show">
+            <div class="popup-container-valid">
+                <div class="popup-valid">
+                    <svg class="popup-image-valid" fill="#A4FF18" width="50px" height="50px" viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 16.577l2.194-2.195 5.486 5.484L24.804 7.743 27 9.937l-14.32 14.32z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
