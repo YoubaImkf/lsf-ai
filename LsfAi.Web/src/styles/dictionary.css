@@ -138,6 +138,11 @@
   font-size: 3em;
 }
 
+.letter-popup__image{
+  height: 300px;
+  width: 250px;
+}
+
 .letter-popup a{
   width: 100%;
   text-align: center;
@@ -159,6 +164,7 @@
   transition: 200ms ease-in-out;
 
 }
+
 
 .letter-popup a:hover{
   
@@ -206,22 +212,24 @@
    */
   .main-nav{
     order: 1;
-    width: 80%;
+    width: 75%;
     align-self: center;
     align-items: center;
+    justify-content: space-between;
 
     border-radius: 1em;
     box-shadow: 1px 4px 10px var(--shadow-color);
 
     margin-top: 2em;
-    padding: 0.5em 0;
-
-    font-size: 1.3em;
+    padding: 0.3em 2em;
+    
     font-weight: bold;
   }
 
   .main-nav span{
-    font-size: 1.4em;
+    font-size: 16px;
+    font-family: 'Montserrat-Medium';
+
   }
 
   /**
@@ -238,8 +246,7 @@
 
   .dictionary-header__heading{
     font-family: 'Montserrat-SemiBold';
-    font-size: 3em;
-    font-weight: 700;
+    font-size: 1.5em;
   }
 
   /**
@@ -251,7 +258,7 @@
   }
   
   .dictionary-main__subheading{
-    font-size: 1.5em;      
+    font-size: 1em;      
   }
 
   .dictionary-main__content{
@@ -273,5 +280,15 @@
   
   .sign-card__definition{
     font-size: 1.7em;
+  }
+
+  .letter-popup{
+    width: 30em;
+    height: 35em;
+  }
+
+  .letter-popup__image{
+    height: 350px;
+    width: 350px;
   }
 }

@@ -22,6 +22,8 @@ class HeaderComponent {
             <li><span class="title">${titleText}</span></li>
             <li><span class="next_button">Suivant</span></li>
           </ul>
+          <a href="/reproduction">S'entraîner</a>
+
         </header>
       `;
     }
