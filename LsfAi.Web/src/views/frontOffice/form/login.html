@@ -9,12 +9,38 @@
     <link rel="stylesheet" href="../../../styles/app.css" />
     <link rel="stylesheet" href="../../../styles/reproduction.css" />
     <link rel="stylesheet" href="../../../styles/HeaderComponent.css" />
+    <link rel="stylesheet" href="../../../styles/nav-bar.css" />
     <link rel="stylesheet" href="../../../styles/authentication.css" />
     <link rel="icon" href="../../../assets/favicon48x48.svg" />
     <link rel="manifest" href="../../../manifest.json">
   </head>
+  <script type="module">
+    //Import components
+    import MainNavComponent from '../../../components/MainNavComponent.js';
+
+    //Create components
+
+    const mainNavComponent = new MainNavComponent();
+
+    // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+    const mainNavContainer = document.querySelector('.main-nav-container');
+
+    // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+    mainNavContainer.innerHTML = mainNavComponent.render();
+
+
+    //get the definition of the letter from the url
+    const urlParams = new URLSearchParams(window.location.search);
+    const definition = urlParams.get('definition');
+
+    const definitionElement = document.getElementById('definition');
+    definitionElement.textContent = definition;
+
+</script>
 
   <body>
+    <div class="main-nav-container"></div>
+    
     <div class="title-container">
       <h1>Connexion</h1>
       <h2>Content de vous revoir !</h2>
@@ -42,6 +68,8 @@
         <a href="register">Créer un compte</a>
       </div>
     </div>
+
+
     <script src="../../../scripts/authentication/loginScript.js"></script>
   </body>
 </html>
