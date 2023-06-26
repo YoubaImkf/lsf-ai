@@ -95,23 +95,18 @@
     }
 }
 
-@media (max-width: 1366px) {
-    .tutorial_video img {
-      width: 382px;
-      height: 198px;
-    }
-  
+@media (max-width: 400px) {
     #webcam-container {
-      height: auto;
+        align-items: flex-end;
+        height: 100vh;
     }
-  
-    #webcam-container canvas {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      max-height: none;
-    }
-  }
-  
 
+    #webcam-container canvas {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        margin-top: auto;
+    }
+}
 
