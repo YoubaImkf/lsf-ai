@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PERMISSION -->
+    <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+    <!-- TENSORFLOW -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+    <!-- COMPONENTS -->
+    <script type="module" defer src="../../../../app.js"></script>
+    <script src="../../../scripts/progress.js"></script>
+    <!-- CSS -->
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/progress.css" rel="stylesheet" />
+    <link href="../../../styles/nav-bar.css" rel="stylesheet" />
+
+    <!-- ICON -->
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+
+    <title>Progress</title>
+
+</head>
+<script type="module">
+    import MainNavComponent from '../../../components/MainNavComponent.js';
+    const mainComponent = new MainNavComponent();
+    const mainContainer = document.querySelector('.nav-cont');
+    mainContainer.innerHTML = mainComponent.render();
+</script>
+
+<body class="container">
+
+    <div class="nav-cont"></div>
+
+    <section class="progress">
+        <div class="main-info">
+            <div class="pie"></div>
+            <h1 class="username">User Name</h1>
+        </div>
+        <div class="exercise-cards">
+
+        </div>
+
+    </section>
+
+
+
+</body>
+
+
+</html>
