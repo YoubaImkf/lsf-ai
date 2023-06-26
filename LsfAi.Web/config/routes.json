@@ -11,6 +11,10 @@
     {
       "path": "/register",
       "name": "form/register.html"
+    },
+    {
+      "path": "/dictionary",
+      "name": "dictionary/dictionary-list.html"
     }
   ]
 }
