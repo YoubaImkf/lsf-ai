@@ -24,11 +24,14 @@
       const headerComponent = new HeaderComponent();
       const titleText = 'Reproduction de signe';
 
-      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
       const headerContainer = document.querySelector('.header-container');
-      
-      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
       headerContainer.innerHTML = headerComponent.render(titleText);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const definition = urlParams.get('definition');
+
+      const definitionElement = document.getElementById('definition');
+      definitionElement.textContent = definition;
     </script>
 
     <div class="header-container"></div>
@@ -36,6 +39,10 @@
     <div class="tutorial_video">
       <!--<iframe src="https://www.youtube.com/embed/"> </iframe>-->
       <img src="../../../assets/images/video_reproduire.png" alt="Lettre A">
+    </div>
+    <div class="definition-container">
+      <span id="definition"></span>
+      <div class="definition-line"></div>
     </div>
     <section class="webcam-section">
       <div id="webcam-container"></div>
