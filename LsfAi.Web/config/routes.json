@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "name": "/reproduction",
+      "path": "../views/frontOffice/exercises/reproduction.html"
+    },
+    {
+      "name": "/login",
+      "path": "../views/frontOffice/form/login.html"
+    },
+    {
+      "name": "/register",
+      "path": "../views/frontOffice/form/register.html"
+    },
+    {
+      "name": "/dictionary",
+      "path": "../views/frontOffice/dictionary/dictionary-list.html"
+    }
+  ]
+}

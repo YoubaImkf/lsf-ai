@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription</title>
 
-<head>
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css" />
+    <link rel="stylesheet" href="../../../styles/authentication.css" />
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg" />
+  </head>
 
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inscription</title>
-
-  <link href="../../../styles/app.css" rel="stylesheet" />
-  <link href="../../../styles/reproduction.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
-  <link rel="stylesheet" href="../../../styles/authentication.css">
-  <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
-</head>
-
-<body>
-  <div class="title-container">
-    <h1>Inscription</h1>
-    <h2>Bienvenue !</h2>
-  </div>
-
-  <div class="form-container">
-    <form action="" method="post">
-      <label for="email">Email</label>
-      <input type="text" id="email" name="email" placeholder="Entrez votre email">
-      <label for="username">Nom d'utilisateur</label>
-      <input type="text" id="username" name="username" placeholder="Entrez un nom d'utilisateur">
-      <label for="password">Mot de passe</label><br>
-      <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe">
-      <input type="submit" value="S'inscrire">
-    </form>
-
-    <div class="account-button">
-      <p>Vous êtes déjà inscrit ?</p>
-      <a href="login">Connectez-vous</a>
+  <body>
+    <div class="title-container">
+      <h1>Inscription</h1>
+      <h2>Bienvenue !</h2>
     </div>
 
-  </div>
-</body>
+    <div class="form-container">
+      <form id="registration-form">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Entrez votre email"
+        />
+        <small id="email-error" class="error-message"></small>
+        <label for="username">Nom d'utilisateur</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Entrez un nom d'utilisateur"
+        />
+        <small id="username-error" class="error-message"></small>
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Entrez votre mot de passe"
+        />
+        <small id="password-error" class="error-message"></small>
 
+        <input type="submit" value="S'inscrire" />
+      </form>
+
+      <div class="account-button">
+        <p>Vous êtes déjà inscrit ?</p>
+        <a href="login">Connectez-vous</a>
+      </div>
+    </div>
+    <script src="../../../scripts/registerScript.js"></script>
+  </body>
 </html>

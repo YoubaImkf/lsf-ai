@@ -45,7 +45,7 @@
     align-items: center;
 }
 
-.tutorial_video iframe{
+.tutorial_video img{
     border-radius: 1em;
     border: none;
     height: 198px;
