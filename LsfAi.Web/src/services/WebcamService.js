@@ -32,7 +32,7 @@ class WebCamComponent {
   
     async loop() {
       this.webcam.update();
-      // await this.predict();
+      await this.predict();
       window.requestAnimationFrame(() => this.loop());
     }
 
@@ -44,8 +44,11 @@ class WebCamComponent {
         prediction = await this.model.predict(this.webcam.canvas);
       }
 
+      //TOUT CE QUI EST EN COMMENTAIRE SERT A LA PHASE DE TEST
+
       //Pop up to show if the prediction is greater than 0.8
       let popup = document.querySelector('.popup-container-show');
+      // let labelChild =  this.labelContainer.querySelector(`#prediction-0`);
 
       // if (!labelChild) {
       //   labelChild = document.createElement('div');
