@@ -8,5 +8,4 @@ router.post('/', signController.createSign);
 router.put('/:id', signController.updateSign);
 router.delete('/:id', signController.deleteSign);
 
-
 module.exports = router;
