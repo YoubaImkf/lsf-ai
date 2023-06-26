@@ -1,4 +1,104 @@
 /******************************************************/
+.container {
+    overflow: hidden;
+}
+
 .progress .username {
     font-size: 35px;
+    margin: 40px 50px;
+    text-align: center;
+}
+
+#progress-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.progress .pie {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+#level-number {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 10px -1px rgba(0, 0, 0, 0.15),
+        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+
+circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    background-size: 20px 30px;
+    width: 160px;
+    height: 160px;
+}
+
+.progress {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0px 47px;
+    overflow: hidden;
+}
+
+.progress .main-info {
+    margin-top: 100px;
+    display: flex;
+    /* text-align: center; */
+}
+
+.progress .exercise-cards {
+    width: 90%;
+    margin-top: 100px;
+}
+
+.progress .exercise-cards__card {
+
+    align-self: center;
+    align-items: center;
+    border-radius: 1em;
+    box-shadow: 1px 4px 10px var(--shadow-color);
+    position: relative;
+    padding: 0.5em 0;
+    font-size: 1em;
+    font-weight: bold;
+    height: 94px;
+    margin-top: 35px;
+    padding: 10%;
+}
+
+.exercise-cards__card p {
+    font-weight: lighter;
+    font-size: 10px;
 }
