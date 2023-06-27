@@ -7,8 +7,11 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'src')));
 
+// Load routes
 app.use('/', routes);
 
+
+// Start server
 app.listen(port, () => {
   console.log(`Express running on port ${port}`);
 });

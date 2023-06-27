@@ -4,7 +4,7 @@ class MainNavComponent {
     <nav class="main-nav">
       <a class="desktop-only" href="/">
         <div class="main-nav__bloc">
-          <img class="main-nav__bloc__icon" src="../../../assets/logo_LSF_AI.svg"
+          <img class="main-nav__bloc__icon" src="../../../assets/favicon48x48.svg"
             alt="Accueil" />
         </div>
       </a>

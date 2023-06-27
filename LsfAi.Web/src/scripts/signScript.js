@@ -5,8 +5,6 @@ let signsData;
 
 window.onload = () => {
   feedDataToHtml();
-  addClick()
-
 }
 
 const feedDataToHtml = async () => {
@@ -14,7 +12,6 @@ const feedDataToHtml = async () => {
   await getAllSigns();
 
   for (let signData of signsData) {
-    console.log(signData)
     const signCard = new SignCardComponent();
 
     const signCardHTML = signCard.render(signData)
@@ -42,17 +39,35 @@ const feedDataToHtml = async () => {
       definition.textContent = signData.definition;
     }
   }
+
+  window.addEventListener('click', function (e) {
+    let popupBoxes = document.querySelectorAll('.letter-popup');
+    for (let popupBox of popupBoxes) {
+      if (!popupBox.contains(e.target)) {
+        // Clicked outside the box
+          popupBox.classList.add('hide');
+      }
+      else{
+        //letterPopup(e)
+      }
+    }
+  });
+
   // After click on sign card -> popup appears with details 
   const letterPopup = (ev) => {
+    ev.stopPropagation();
+
     letterDiv = ev.currentTarget;
     letterPopupBox = letterDiv.querySelector('.letter-popup');
-    
-    letterPopupBox.classList.contains('hide') 
-    ? letterPopupBox.classList.remove('hide')
-    : letterPopupBox.classList.add('hide');
 
+    letterPopupBox.classList.contains('hide')
+      ? letterPopupBox.classList.remove('hide')
+      : letterPopupBox.classList.add('hide');
+
+      /*
     let closeBtn = letterPopupBox.querySelector('.letter-popup__close');
-    closeBtn.addEventListener('click', letterPopup );
+    closeBtn.addEventListener('click', letterPopup);
+    */
   }
 
   //get all signCards displayed
