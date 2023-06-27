@@ -4,6 +4,7 @@ class HeaderComponent {
         <header class="header">
           <ul>
             <li>
+            <a href="/dictionary">
               <svg
                 width="13"
                 height="13"
@@ -18,6 +19,7 @@ class HeaderComponent {
                   stroke-linejoin="round"
                 />
               </svg>
+              </a>
             </li>
             <li><span class="title">${titleText}</span></li>
             <li><span class="next_button">Suivant</span></li>

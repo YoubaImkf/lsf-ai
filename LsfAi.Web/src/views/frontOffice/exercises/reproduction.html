@@ -15,7 +15,7 @@
     <link href="../../../styles/app.css" rel="stylesheet" />
     <link href="../../../styles/reproduction.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
-    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
+    <link rel="icon" href="../../../assets/favicon48x48.svg">
   </head>
   <body>
     <script type="module">
@@ -24,10 +24,7 @@
       const headerComponent = new HeaderComponent();
       const titleText = 'Reproduction de signe';
 
-      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
       const headerContainer = document.querySelector('.header-container');
-      
-      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé
       headerContainer.innerHTML = headerComponent.render(titleText);
     </script>
 
