@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon compte</title>
+
+    <link href="../../../styles/app.css" rel="stylesheet" />
+    <link href="../../../styles/reproduction.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css" />
+    <link rel="stylesheet" href="../../../styles/authentication.css" />
+    <link rel="stylesheet" href="../../../styles/nav-bar.css" />
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg" />
+  </head>
+  <script type="module">
+    //Import components
+    import MainNavComponent from '../../../components/MainNavComponent.js';
+
+    //Create components
+
+    const mainNavComponent = new MainNavComponent();
+
+    // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+    const mainNavContainer = document.querySelector('.main-nav-container');
+
+    // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+    mainNavContainer.innerHTML = mainNavComponent.render();
+</script>
+  <body>
+    <div class="main-nav-container"></div>
+
+    <div class="title-container">
+        <svg width="82" height="87" viewBox="0 0 82 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M68.5471 45.6642C64.8279 42.0492 60.5215 39.1952 55.6278 37.4829C59.9342 33.6776 62.6747 27.9696 62.6747 21.8812C62.6747 10.275 52.8874 0.571533 40.7511 0.571533C28.6148 0.571533 18.8274 10.0848 18.8274 21.8812C18.8274 28.1599 21.5679 33.6776 25.8743 37.4829C20.9806 39.1952 16.6742 41.8589 12.955 45.6642C0.035733 59.3633 0.818721 81.434 0.818721 82.3853C1.01447 84.6685 2.77619 86.1906 5.12515 86.1906C7.47411 86.1906 9.04008 84.2879 9.04008 82.0048C9.04008 81.8145 8.2571 62.4075 19.4147 50.9916C24.6998 45.6642 31.9425 43.0005 40.9468 43.0005C49.9512 43.0005 57.1938 45.6642 62.4789 50.9916C73.6365 62.2172 72.8535 81.6242 72.8535 82.0048C72.6578 84.2879 74.4195 86.0003 76.7685 86.1906H76.9642C79.1174 86.1906 80.8791 84.4782 81.0749 82.3853C81.2706 81.434 82.2494 59.3633 68.5471 45.6642ZM27.4403 21.8812C27.4403 14.6511 33.5084 8.56265 41.1426 8.56265C48.5809 8.56265 54.8448 14.4608 54.8448 21.8812C54.8448 29.1112 48.7767 35.1997 41.1426 35.1997C33.5084 35.0094 27.4403 29.1112 27.4403 21.8812Z" fill="#FC7339"/>
+            </svg>
+      <h1>Mon compte</h1>
+    </div>
+
+    <div class="form-container">
+      <form id="account-form">
+        <label for="username">Nom d'utilisateur</label>
+        <!-- put user.username in input -->
+        <input
+          type="text"
+          id="usernameAccount"
+          name="username"
+          placeholder=""
+          disabled
+        />
+        <small id="username-error" class="error-message"></small>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Entrez votre email"
+        >
+        <small id="email-error" class="error-message"></small>
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="***********"
+        />
+        <small id="password-error" class="error-message"></small>
+            
+        <div class="action-button-container">
+          <input type="submit" value="Modifier" />
+          <a id="logout-button" href="login">Deconnexion</a>
+        </div>
+      </form>
+    </div>
+    <script src="../../../scripts/authentication/updateAccountScript.js"></script>
+    <script src="../../../scripts/authentication/logoutScript.js"></script>
+  </body>
+</html>

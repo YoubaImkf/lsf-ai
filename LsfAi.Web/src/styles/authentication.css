@@ -83,6 +83,8 @@ div.form-container form input[type="text"]:focus, input[type="email"]:focus, inp
 
 /******** Button ********/
 
+/* button submit */
+
 input[type="submit"]{
     width: 30%;
     border: none;
@@ -93,8 +95,6 @@ input[type="submit"]{
     margin-bottom: 10px;
     cursor: pointer;
 }
-
-
 
 /******* Link account ********/
 
@@ -116,6 +116,30 @@ div.account-button a{
     font-size: 14px;
     color: #FF6928
 }
+
+@media only screen and (min-width: 768px) {
+/******** Button ********/
+
+    /* container */
+
+    .action-button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    /* logout button */
+
+    .action-button-container a#logout-button {
+        font-family: 'Montserrat-Bold';
+        font-size: 14px;
+        text-decoration: none;
+        margin-top: 14px;
+    }
+
+
+}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {

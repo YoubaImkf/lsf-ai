@@ -17,14 +17,34 @@
     <!-- CSS -->
     <link href="../../../styles/app.css" rel="stylesheet" />
     <link href="../../../styles/dictionary.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../styles/nav-bar.css" />
     <!-- ICON -->
     <link rel="icon" href="../../../assets/favicon48x48.svg">
 
     <title>Dictionnaire LSF</title>
 
   </head>
+  <script type="module">
+    //Import components
+    import MainNavComponent from '../../../components/MainNavComponent.js';
 
-  <body class="container">
+    //Create components
+
+    const mainNavComponent = new MainNavComponent();
+
+    // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+    const mainNavContainer = document.querySelector('.main-nav-container');
+
+    // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+    mainNavContainer.innerHTML = mainNavComponent.render();
+
+  </script>
+
+
+  <body>
+  
+    <div class="main-nav-container"></div>
+    <div class="container">
     <header class="dictionary-header">
       <h1 class="dictionary-header__heading">Dictionnaire</h1>
     </header>
@@ -34,44 +54,7 @@
       <section class="dictionary-main__content">
       </section>
     </main>
-
-    <nav class="main-nav">
-      <a class="desktop-only" href="/">
-        <div class="main-nav__bloc">
-          <img class="main-nav__bloc__icon" src="../../../assets/favicon48x48.svg"
-            alt="Accueil" />
-        </div>
-      </a>
-      <a href="/">
-        <div class="main-nav__bloc">
-          <img id="nav-home-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/home-icon.svg"
-            alt="Accueil" />
-          <span>Accueil</span>
-        </div>
-      </a>
-      <a href="/exercise">
-        <div class="main-nav__bloc">
-          <img id="nav-exercise-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/exercise-icon.svg"
-            alt="Liste des exercices" />
-          <span>Exercices</span>
-        </div>
-      </a>
-      <a href="/dictionary">
-        <div class="main-nav__bloc">
-          <img id="nav-dictionary-icon" class="main-nav__bloc__icon mobile-only"
-            src="../../../assets/menu-icons/dictionary-icon.svg" alt="Dictionnaire de signes" />
-          <span>Dictionnaire</span>
-        </div>
-      </a>
-      <a href="/account">
-        <div class="main-nav__bloc">
-          <img id="nav-h=account-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/account-icon.svg"
-            alt="Mon Compte" />
-          <span>Compte</span>
-        </div>
-      </a>
-    </nav>
-
+    </div>
   </body>
   <script type="module" defer src="../../../scripts/signScript.js"></script>
 
