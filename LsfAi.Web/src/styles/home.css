@@ -1,0 +1,100 @@
+/****************
+ *    MOBILE    *
+ ****************/
+
+/**
+ *  Home Page
+ */
+
+/**
+ *  Home (body)
+ */
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  /*background-position: 10px;*/
+  background:
+    url(../assets/backgrounds/mobile_home_bg.png) no-repeat center center fixed,
+    var(--main-bg-color);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.home-main{
+  align-self: center;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  width: 85vw;
+
+  margin: 25px 0;
+}
+
+.home-main__logo{
+  align-self: flex-end;
+  width: 59px;
+  height: 59px;
+}
+
+.home-main__heading{
+  font-family: 'Montserrat-SemiBold';
+  font-size: 36px;
+  
+  text-align: left;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.home-main__subheading{
+  font-size: 16px;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.home-main span, .home-main strong{
+  font-family: inherit;
+}
+
+.home-content{
+  margin-top: 83px;
+}
+
+.home-content__card{
+  background-color: var(--second-bg-color);
+}
+
+.home-content__card__img{
+  width: 59px;
+  height: 59px;
+}
+
+.home-content__card__img path{
+  fill: var(--main-color);
+}
+
+.home-content__card__img {
+  fill: var(--main-color);
+}
+
+.home-content__card__text{
+
+}
+
+/*****************
+ *    DESKTOP    *
+ *****************/
+
+@media (min-width: 768px) {
+
+  .container{
+    align-items: center;
+  }
+
+ 
+}

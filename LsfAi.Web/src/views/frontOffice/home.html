@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../styles/app.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles/nav-bar.css" />
-    <title>Acceuil</title>
+    <link rel="stylesheet" href="../../styles/home.css" />
+
+    <title>Accueil</title>
   </head>
+
   <body>
     <script type="module">
       //Import components
@@ -22,31 +26,87 @@
       mainNavContainer.innerHTML = mainNavComponent.render();
     </script>
 
-    <div class="main-nav-container"></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Ceci est l'accueil</h1>
+    <div class="container">
+      <div class="main-nav-container"></div>
+      <main class="home-main">
+        <img class="home-main__logo" src="../../assets/favicon48x48.svg" alt="LOGO LSF AI">
+        <h1 class="home-main__heading">LSF A<span class="colored-text">I</span>,</h1>
+        <h2 class="home-main__subheading">Apprenez la LSF en <strong class="colored-text">autonomie</strong></h2>
 
-    <script>
-      // Load the Service Worker
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("/src/service-worker.js")
-            .then(function (registration) {
-              console.log(
-                "Service Worker registered with scope:",
-                registration.scope
-              );
-            })
-            .catch(function (error) {
-              console.log("Service Worker registration failed:", error);
-            });
-        });
-      }
-    </script>
+        <div class="home-content">
+          <section class="home-content__card">
+            <svg class="home-content__card__img" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path id="Vector" d="M30.7598 24.2733C29.5102 23.0489 28.0632 22.0822 26.4189 21.5022C27.8659 20.2133 28.7867 18.28 28.7867 16.2178C28.7867 12.2867 25.4981 9 21.4203 9C17.3425 9 14.054 12.2222 14.054 16.2178C14.054 18.3444 14.9748 20.2133 16.4218 21.5022C14.7775 22.0822 13.3305 22.9844 12.0809 24.2733C7.73999 28.9133 8.00307 36.3889 8.00307 36.7111C8.06885 37.4844 8.66078 38 9.45003 38C10.2393 38 10.7655 37.3556 10.7655 36.5822C10.7655 36.5178 10.5024 29.9444 14.2513 26.0778C16.0271 24.2733 18.4606 23.3711 21.4861 23.3711C24.5116 23.3711 26.9451 24.2733 28.7209 26.0778C32.4699 29.88 32.2068 36.4533 32.2068 36.5822C32.141 37.3556 32.7329 37.9356 33.5222 38H33.588C34.3114 38 34.9034 37.42 34.9691 36.7111C35.0349 36.3889 35.3638 28.9133 30.7598 24.2733ZM16.9479 16.2178C16.9479 13.7689 18.9868 11.7067 21.5519 11.7067C24.0512 11.7067 26.1558 13.7044 26.1558 16.2178C26.1558 18.6667 24.1169 20.7289 21.5519 20.7289C18.9868 20.6644 16.9479 18.6667 16.9479 16.2178Z" fill="#2C2C2C"/>
+            </svg>
+            <div class="home-content__card__text">
+              <h3>Mon compte</h3>
+              <p>Mes préférences...</p>
+            </div>
+          </section>
+          <section class="home-content__card">
+            <svg class="home-content__card__img" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Icone dictionnaire menu">
+                <path id="Vector"
+                  d="M33.25 5.68753H11.8125C10.6875 5.65451 9.59525 6.06884 8.77518 6.83971C7.9551 7.61059 7.47407 8.67511 7.4375 9.80003V31.5C7.48316 32.8199 8.05047 34.0678 9.01499 34.9701C9.97952 35.8722 11.2625 36.355 12.5825 36.3125H33.25C33.5967 36.308 33.9279 36.1683 34.1731 35.9231C34.4183 35.678 34.5579 35.3467 34.5625 35V7.00003C34.5579 6.65334 34.4183 6.32213 34.1731 6.07696C33.9279 5.8318 33.5967 5.69206 33.25 5.68753ZM31.9375 33.6875H12.5825C11.9584 33.7309 11.3426 33.5249 10.8702 33.1147C10.3978 32.7047 10.1073 32.1241 10.0625 31.5C10.1073 30.8761 10.3978 30.2953 10.8702 29.8853C11.3426 29.4753 11.9584 29.2693 12.5825 29.3125H31.9375V33.6875ZM31.9375 26.6875H12.5825C11.7015 26.6886 10.8349 26.9112 10.0625 27.335V9.80003C10.1026 9.37284 10.308 8.9782 10.6349 8.70031C10.9619 8.42242 11.3844 8.28327 11.8125 8.31253H31.9375V26.6875Z"
+                  fill="#2C2C2C" />
+                <path id="Vector_2"
+                  d="M15.3125 15.3125H26.6875C27.0356 15.3125 27.3695 15.1742 27.6155 14.9281C27.8617 14.6819 28 14.3481 28 14C28 13.6519 27.8617 13.3181 27.6155 13.0719C27.3695 12.8258 27.0356 12.6875 26.6875 12.6875H15.3125C14.9644 12.6875 14.6306 12.8258 14.3844 13.0719C14.1383 13.3181 14 13.6519 14 14C14 14.3481 14.1383 14.6819 14.3844 14.9281C14.6306 15.1742 14.9644 15.3125 15.3125 15.3125Z"
+                  fill="#2C2C2C" />
+                <path id="Vector_3"
+                  d="M15.3125 21.4375H26.6875C27.0356 21.4375 27.3695 21.2993 27.6155 21.053C27.8617 20.807 28 20.4731 28 20.125C28 19.7769 27.8617 19.443 27.6155 19.197C27.3695 18.9507 27.0356 18.8125 26.6875 18.8125H15.3125C14.9644 18.8125 14.6306 18.9507 14.3844 19.197C14.1383 19.443 14 19.7769 14 20.125C14 20.4731 14.1383 20.807 14.3844 21.053C14.6306 21.2993 14.9644 21.4375 15.3125 21.4375Z"
+                  fill="#2C2C2C" />
+              </g>
+            </svg>
+            <div class="home-content__card__text">
+              <h3>Dictionnaire</h3>
+              <p>Alphabet & nombres</p>
+            </div>
+          </section>
+          <section class="home-content__card">
+            <svg class="home-content__card__img" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Icone exercice">
+                <path id="Vector"
+                  d="M7.4375 25.5C6.26875 25.5 5.3125 24.5438 5.3125 23.375V10.625C5.3125 9.45625 6.26875 8.5 7.4375 8.5C8.60625 8.5 9.5625 9.45625 9.5625 10.625V23.375C9.5625 24.5438 8.60625 25.5 7.4375 25.5Z"
+                  stroke="#2C2C2C" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2"
+                  d="M3.1875 22.3125C2.01875 22.3125 1.0625 21.3563 1.0625 20.1875V13.8125C1.0625 12.6437 2.01875 11.6875 3.1875 11.6875C4.35625 11.6875 5.3125 12.6437 5.3125 13.8125V20.1875C5.3125 21.3563 4.35625 22.3125 3.1875 22.3125Z"
+                  stroke="#2C2C2C" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_3"
+                  d="M26.5625 8.5C27.7313 8.5 28.6875 9.45625 28.6875 10.625V23.375C28.6875 24.5438 27.7313 25.5 26.5625 25.5C25.3937 25.5 24.4375 24.5438 24.4375 23.375V10.625C24.4375 9.45625 25.3937 8.5 26.5625 8.5Z"
+                  stroke="#2C2C2C" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_4"
+                  d="M30.8125 11.6875C31.9813 11.6875 32.9375 12.6437 32.9375 13.8125V20.1875C32.9375 21.3563 31.9813 22.3125 30.8125 22.3125C29.6437 22.3125 28.6875 21.3563 28.6875 20.1875V13.8125C28.6875 12.6437 29.6437 11.6875 30.8125 11.6875Z"
+                  stroke="#2C2C2C" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_5" d="M9.5625 17H24.4375" stroke="#2C2C2C" stroke-width="2" stroke-miterlimit="10"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+            <div class="home-content__card__text">
+              <h3>Exercices</h3>
+              <p>Reconnaissance, paires, épellation</p>
+            </div>
+          </section>
+        </div>
+      </main>
+      <script>
+        // Load the Service Worker
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker
+              .register("/src/service-worker.js")
+              .then(function (registration) {
+                console.log(
+                  "Service Worker registered with scope:",
+                  registration.scope
+                );
+              })
+              .catch(function (error) {
+                console.log("Service Worker registration failed:", error);
+              });
+          });
+        }
+      </script>
+    </div>
   </body>
+
 </html>
