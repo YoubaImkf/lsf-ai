@@ -3,16 +3,39 @@ const progressionService = require('../services/ProgressionService');
 /**
  * Get all progressions by User ID.
  * @route GET /progressions/user{userId}/average
- * @returns {Promise<object[]>} A promise that resolves to an array of progression objects.
+ * @param {number} userId - The User ID.
+ * @returns {Promise<object>} A promise that resolves to a number.
  */
 const getAverageProgressionByUser = async (req, res) => {
-  
+
   try {
-    const progressions = await progressionService.getProgressions();
-    res.json(progressions);
+    const userId = parseInt(req.params.userId);
+    const userProgressions = await progressionService.getProgressionsByUser(userId);
+    const maxProgressions = await progressionService.getMaxProgressions();
+    
+    let averageProgression = 0;
+    let avgProgressionsList = [];
+    let averageUserProgression = {};  
+
+    maxProgressions.forEach((maxProgression, index) => {
+      avgProgressionsList.push({
+        'exerciceId': maxProgression.exercise_id,
+        'exerciceDescription': userProgressions[index].description,
+        'exercisePercentage': (userProgressions[index].progression_level/maxProgression.max_progression_level)*100,
+      });
+      averageProgression += avgProgressionsList[index].exercisePercentage;
+    })
+
+    averageProgression /= (maxProgressions.length*100)/100;
+
+    averageUserProgression['exerciseProgressions'] = avgProgressionsList;
+    averageUserProgression['averageProgression'] = averageProgression;
+
+    
+    res.json(averageUserProgression);
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Failed to retrieve progressions' });
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve progressions' });
   }
 
 };
@@ -23,13 +46,13 @@ const getAverageProgressionByUser = async (req, res) => {
  * @returns {Promise<object[]>} A promise that resolves to an array of progression objects.
  */
 const getAllProgressions = async (req, res) => {
-    try {
-        const progressions = await progressionService.getProgressions();
-        res.json(progressions);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to retrieve progressions' });
-    }
+  try {
+    const progressions = await progressionService.getProgressions();
+    res.json(progressions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve progressions' });
+  }
 };
 
 /**
@@ -40,16 +63,16 @@ const getAllProgressions = async (req, res) => {
  */
 const getAllProgressionsByUser = async (req, res) => {
   try {
-      const userId = parseInt(req.params.userId);
-      const progressions = await progressionService.getProgressionsByUser(userId);
-      if (progressions) {
-        res.json(progressions);
-      } else {
-        res.status(404).json({ error: 'progression not found' });
+    const userId = parseInt(req.params.userId);
+    const progressions = await progressionService.getProgressionsByUser(userId);
+    if (progressions) {
+      res.json(progressions);
+    } else {
+      res.status(404).json({ error: 'progression not found' });
     }
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Failed to retrieve progressions' });
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve progressions' });
   }
 };
 
@@ -60,18 +83,18 @@ const getAllProgressionsByUser = async (req, res) => {
  * @returns {Promise<object>} A promise that resolves to the progression object.
  */
 const getProgressionById = async (req, res) => {
-    try {
-        const progressionId = parseInt(req.params.id);
-        const progression = await progressionService.getProgressionById(progressionId);
-        if (progression) {
-            res.json(progression);
-        } else {
-            res.status(404).json({ error: 'progression not found' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to retrieve progression' });
+  try {
+    const progressionId = parseInt(req.params.id);
+    const progression = await progressionService.getProgressionById(progressionId);
+    if (progression) {
+      res.json(progression);
+    } else {
+      res.status(404).json({ error: 'progression not found' });
     }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve progression' });
+  }
 };
 
 /**
@@ -82,15 +105,15 @@ const getProgressionById = async (req, res) => {
  * @returns {Promise<object>} A promise that resolves to the created progression object.
  */
 const createProgression = async (req, res) => {
-    try {
-        const progressionData = req.body;
-        const userId = parseInt(req.params.userId);
-        const newProgression = await progressionService.createProgression(userId, progressionData);
-        res.status(201).json(newProgression);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to create progression ' });
-    }
+  try {
+    const progressionData = req.body;
+    const userId = parseInt(req.params.userId);
+    const newProgression = await progressionService.createProgression(userId, progressionData);
+    res.status(201).json(newProgression);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to create progression ' });
+  }
 };
 
 
@@ -102,19 +125,19 @@ const createProgression = async (req, res) => {
  * @returns {Promise<object>} A promise that resolves to the updated progression object.
  */
 const updateProgression = async (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        const progressionData = req.body;
-        const updatedProgression = await progressionService.updateProgression(id, progressionData);
-        if (updatedProgression) {
-            res.json(updatedProgression);
-        } else {
-            res.status(404).json({ error: 'progression not found' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to update progression' });
+  try {
+    const id = parseInt(req.params.id);
+    const progressionData = req.body;
+    const updatedProgression = await progressionService.updateProgression(id, progressionData);
+    if (updatedProgression) {
+      res.json(updatedProgression);
+    } else {
+      res.status(404).json({ error: 'progression not found' });
     }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to update progression' });
+  }
 };
 
 
@@ -125,18 +148,18 @@ const updateProgression = async (req, res) => {
  * @returns {Promise<object>} A promise that resolves to a success message.
  */
 const deleteProgression = async (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        const deletedProgression = await progressionService.deleteProgression(id);
-        if (deletedProgression) {
-            res.json({ message: 'progression deleted' });
-        } else {
-            res.status(404).json({ error: 'progression not found' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to delete progression' });
+  try {
+    const id = parseInt(req.params.id);
+    const deletedProgression = await progressionService.deleteProgression(id);
+    if (deletedProgression) {
+      res.json({ message: 'progression deleted' });
+    } else {
+      res.status(404).json({ error: 'progression not found' });
     }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to delete progression' });
+  }
 };
 
 //exports all the functions defined
