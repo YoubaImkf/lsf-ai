@@ -42,7 +42,7 @@ const progressionService = {
    */
   getProgressionsByUser: (userId) => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT `progression_level`, `description`, `exercise_id` FROM `progression`,`exercise` WHERE progression.user_id = ? AND exercise.id = progression.exercise_id';
+      const query = 'SELECT * FROM `progression`,`exercise` WHERE progression.user_id = ? AND exercise.id = progression.exercise_id';
       db.query(query, [userId], (error, results) => {
         if (error) {
           reject(error);
@@ -60,7 +60,7 @@ const progressionService = {
    */
   getProgressionById: (id) => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT `progression_level`,`description` FROM `progression`,`exercise` WHERE progression.id = ? AND exercise.id = progression.exercise_id';
+      const query = 'SELECT * FROM `progression`,`exercise` WHERE progression.id = ? AND exercise.id = progression.exercise_id';
       db.query(query, [id], (error, results) => {
         if (error) {
           reject(error);
@@ -110,8 +110,8 @@ const progressionService = {
       */
   updateProgression: (id, progressionData) => {
     return new Promise((resolve, reject) => {
-      const query = 'UPDATE `progression` SET progression_level = ?, exercise_id = ? WHERE id = ?';
-      const values = [progressionData.progression_level, progressionData.exercise_id, id];
+      const query = 'UPDATE `progression` SET progression_level = ?, exercise_id = ?, repeat_number = ? WHERE id = ?';
+      const values = [progressionData.progression_level, progressionData.exercise_id, progressionData.repeat_number, id];
       db.query(query, values, (error) => {
         if (error) {
           reject(error);

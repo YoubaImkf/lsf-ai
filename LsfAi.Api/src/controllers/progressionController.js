@@ -12,26 +12,33 @@ const getAverageProgressionByUser = async (req, res) => {
     const userId = parseInt(req.params.userId);
     const userProgressions = await progressionService.getProgressionsByUser(userId);
     const maxProgressions = await progressionService.getMaxProgressions();
-    
-    let averageProgression = 0;
+
+    let averageProgressionPoints = 0;
     let avgProgressionsList = [];
-    let averageUserProgression = {};  
+    let averageUserProgression = {};
 
     maxProgressions.forEach((maxProgression, index) => {
       avgProgressionsList.push({
         'exerciceId': maxProgression.exercise_id,
         'exerciceDescription': userProgressions[index].description,
-        'exercisePercentage': (userProgressions[index].progression_level/maxProgression.max_progression_level)*100,
+        'exerciseLevel': userProgressions[index].progression_level,
+        'progressionLevel': (userProgressions[index].progression_level / maxProgression.max_progression_level),
+        'repeatNumber': userProgressions[index].repeat_number
       });
-      averageProgression += avgProgressionsList[index].exercisePercentage;
+      averageProgressionPoints += avgProgressionsList[index].exerciseLevel*20 + avgProgressionsList[index].repeatNumber*10; //100points par répétition
     })
 
-    averageProgression /= (maxProgressions.length*100)/100;
+    let userLevel = parseInt(averageProgressionPoints/200);
+    let remainingPoints = 200-(averageProgressionPoints%200);
 
     averageUserProgression['exerciseProgressions'] = avgProgressionsList;
-    averageUserProgression['averageProgression'] = averageProgression;
+    averageUserProgression['averageProgressionPoints'] = averageProgressionPoints;
+    averageUserProgression['userLevel'] = userLevel;
+    averageUserProgression['remainingPoints'] = remainingPoints;
 
-    
+
+
+
     res.json(averageUserProgression);
   } catch (error) {
     console.error(error);
