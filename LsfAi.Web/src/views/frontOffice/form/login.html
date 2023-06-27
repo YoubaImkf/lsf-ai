@@ -27,15 +27,6 @@
 
     // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
     mainNavContainer.innerHTML = mainNavComponent.render();
-
-
-    //get the definition of the letter from the url
-    const urlParams = new URLSearchParams(window.location.search);
-    const definition = urlParams.get('definition');
-
-    const definitionElement = document.getElementById('definition');
-    definitionElement.textContent = definition;
-
 </script>
 
   <body>
