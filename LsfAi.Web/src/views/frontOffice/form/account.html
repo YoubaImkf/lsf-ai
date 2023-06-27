@@ -26,25 +26,6 @@
 
     // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
     mainNavContainer.innerHTML = mainNavComponent.render();
-
-
-    // Get user from session storage
-    const user = JSON.parse(sessionStorage.getItem('user'));
-
-    console.log(user);
-
-    // Get the input
-    const usernameInput = document.querySelector('#username');
-    const emailInput = document.querySelector('#email');
-
-    // Put the username in the input
-    usernameInput.value = user.username;
-
-    // Put the email in the input
-    emailInput.value = user.email;
-
-    
-
 </script>
   <body>
     <div class="main-nav-container"></div>
@@ -57,12 +38,12 @@
     </div>
 
     <div class="form-container">
-      <form id="registration-form">
+      <form id="account-form">
         <label for="username">Nom d'utilisateur</label>
         <!-- put user.username in input -->
         <input
           type="text"
-          id="username"
+          id="usernameAccount"
           name="username"
           placeholder=""
           disabled
@@ -74,8 +55,7 @@
           id="email"
           name="email"
           placeholder="Entrez votre email"
-          disabled
-        />
+        >
         <small id="email-error" class="error-message"></small>
         <label for="password">Mot de passe</label>
         <input
@@ -83,13 +63,16 @@
           id="password"
           name="password"
           placeholder="***********"
-          disabled
         />
         <small id="password-error" class="error-message"></small>
             
-        <input type="submit" value="Modifier" />
+        <div class="action-button-container">
+          <input type="submit" value="Modifier" />
+          <a id="logout-button" href="login">Deconnexion</a>
+        </div>
       </form>
     </div>
-    <script src="../../../scripts/authentication/registerScript.js"></script>
+    <script src="../../../scripts/authentication/updateAccountScript.js"></script>
+    <script src="../../../scripts/authentication/logoutScript.js"></script>
   </body>
 </html>

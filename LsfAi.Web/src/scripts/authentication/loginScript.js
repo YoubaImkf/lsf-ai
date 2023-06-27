@@ -19,11 +19,9 @@ function postData(data) {
     })
     .then((data) => {
       // Access the user properties (role and username)
-      const { role,username, email } = data;
+      const { role, id, username, email } = data;
       // Store the user properties in the session storage
       sessionStorage.setItem('user', JSON.stringify(data));
-      // sessionStorage.setItem("role", role);
-      // sessionStorage.setItem("username", username);
 
       window.location.href = "http://localhost:3000/dictionary";
     })

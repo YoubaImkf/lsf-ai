@@ -10,13 +10,7 @@
  *  Dictionary Container (body)
  */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-
-  /*background-position: 10px;*/
+body{
   background:
     url(../assets/backgrounds/mobile-dictionary-bg.png) no-repeat center center fixed,
     var(--main-bg-color);
@@ -24,6 +18,13 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;  
 }
 
 /**
@@ -166,31 +167,6 @@
   color: var(--main-color);
 }
 
-/**
- *  Main Nav 
- */
-
-.main-nav {
-  display: flex;
-  justify-content: space-around;
-
-  background-color: var(--second-bg-color);
-  box-shadow: 0 -1px 4px var(--shadow-color);
-  padding: 0.8em 0 0.8em 0.5em;
-}
-
-.main-nav__bloc {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-nav__bloc__icon {
-  width: 2.5em;
-  height: 2.5em;
-}
-
-
 /*****************
  *    DESKTOP    *
  *****************/
@@ -199,29 +175,6 @@
 
   .container{
     align-items: center;
-  }
-
-  /**
-   *  Main Nav
-   */
-  .main-nav{
-    order: 1;
-    width: 80%;
-    align-self: center;
-    align-items: center;
-
-    border-radius: 1em;
-    box-shadow: 1px 4px 10px var(--shadow-color);
-
-    margin-top: 2em;
-    padding: 0.5em 0;
-
-    font-size: 1.3em;
-    font-weight: bold;
-  }
-
-  .main-nav span{
-    font-size: 1.4em;
   }
 
   /**
