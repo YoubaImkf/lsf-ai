@@ -5,7 +5,7 @@
 
 .progress .username {
     font-size: 35px;
-    margin: 40px 50px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -15,52 +15,58 @@
 }
 
 .progress .pie {
-    width: 160px;
-    height: 160px;
-    position: relative;
+    /* width: 420px; */
+    display: flex;
+    /* padding: 50px 0; */
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
 }
 
-#level-number {
+.level-progress {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: conic-gradient(#FF6928 3.6deg, #FFFF 0deg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.level-progress::before {
+    content: "";
+    position: absolute;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-color: #FFFF;
+}
+
+.small .level-progress {
+    height: 50px;
+    width: 50px;
+    position: relative;
+
+}
+
+.small .level-progress::before {
+    height: 40px;
+    width: 40px;
+}
+
+.level-value {
+    position: relative;
     font-size: 25px;
     font-weight: bold;
 }
 
-.outer {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    padding: 20px;
-    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
-        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-}
-
-.inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    box-shadow: inset 4px 4px 10px -1px rgba(0, 0, 0, 0.15),
-        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
-        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
-        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
-}
-
-circle {
-    fill: none;
-    stroke: url(#GradientColor);
-    stroke-width: 20px;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 0;
-}
-
-svg {
-    position: absolute;
-    top: 0;
-    background-size: 20px 30px;
-    width: 160px;
-    height: 160px;
+.small .level-value {
+    position: relative;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .progress {
@@ -68,7 +74,7 @@ svg {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0px 47px;
+    margin: 0px 30px;
     overflow: hidden;
 }
 
@@ -80,7 +86,7 @@ svg {
 
 .progress .exercise-cards {
     width: 90%;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 .progress .exercise-cards__card {
@@ -95,10 +101,82 @@ svg {
     font-weight: bold;
     height: 94px;
     margin-top: 35px;
-    padding: 10%;
+    padding: 10% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFF;
 }
 
 .exercise-cards__card p {
     font-weight: lighter;
     font-size: 10px;
+
+}
+
+/* DESKTOP */
+.container {
+    background:
+        url(../assets/backgrounds/desktop_bg_home.png) no-repeat center center fixed,
+        var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+
+@media (min-width: 768px) {
+    .main-info {
+        width: 90%;
+
+
+    }
+
+    .main-info .pie {
+        display: flex;
+        width: 2000px;
+        padding: 20px;
+        justify-content: flex-start;
+        flex-direction: row;
+        margin-left: 20px;
+        margin-bottom: 70px;
+
+    }
+
+    .main-info .pie #level-content {
+        position: absolute;
+        top: 370px;
+        margin: 20px 0 0 10px;
+    }
+
+    .main-info .pie .username {
+        margin: 0 0 0 112px;
+
+    }
+
+    .progress .exercise-cards__card {
+        height: 120px;
+        padding: 0px;
+        justify-content: space-between;
+        padding: 0 10% 0 5%;
+
+    }
+
+    .progress .exercise-cards__card {
+        font-size: 20px;
+    }
+
+    .small .level-progress {
+        height: 80px;
+        width: 80px;
+        position: relative;
+
+    }
+
+    .small .level-progress::before {
+        height: 60px;
+        width: 60px;
+    }
 }
