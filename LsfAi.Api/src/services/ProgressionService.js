@@ -1,12 +1,13 @@
 const db = require('../../config/database');
 const progressionService = {
+
   /**
-   * Get all exercise progressions and its definition from the database.
+   * Get all max level of each exercise from the database.
    * @returns {Promise<Array<Object>>} A promise that resolves to an array of user objects.
    */
-  getProgressions: () => {
+  getMaxProgressions: () => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT `progression_level`,`description` FROM `progression`,`exercise` WHERE  exercise.id = progression.exercise_id';
+      const query = 'SELECT `exercise_id`, MAX(`progression_level`) AS max_progression_level FROM `progression` GROUP BY `exercise_id`';
       db.query(query, (error, results) => {
         if (error) {
           reject(error);
@@ -17,14 +18,31 @@ const progressionService = {
     });
   },
 
+    /**
+   * Get all exercise progressions and description from the database.
+   * @returns {Promise<Array<Object>>} A promise that resolves to an array of user objects.
+   */
+    getProgressions: () => {
+      return new Promise((resolve, reject) => {
+        const query = 'SELECT `progression_level`,`description` FROM `progression`,`exercise` WHERE  exercise.id = progression.exercise_id';
+        db.query(query, (error, results) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+    },
+
   /**
-   * Get all exercise progressions and its definition from the database.
+   * Get all exercise progressions and description from the database.
    * @param {number} userId - The User ID.
    * @returns {Promise<Array<Object>>} A promise that resolves to an array of progression objects.
    */
   getProgressionsByUser: (userId) => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT `progression_level`,`description` FROM `progression`,`exercise` WHERE progression.user_id = ? AND exercise.id = progression.exercise_id';
+      const query = 'SELECT `progression_level`, `description`, `exercise_id` FROM `progression`,`exercise` WHERE progression.user_id = ? AND exercise.id = progression.exercise_id';
       db.query(query, [userId], (error, results) => {
         if (error) {
           reject(error);
