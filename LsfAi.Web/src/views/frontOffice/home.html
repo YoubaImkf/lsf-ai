@@ -33,22 +33,22 @@
     <h1>Ceci est l'accueil</h1>
 
     <script>
-      // Load the Service Worker
-      // if ("serviceWorker" in navigator) {
-      //   window.addEventListener("load", function () {
-      //     navigator.serviceWorker
-      //       .register("../../service-worker.js")
-      //       .then(function (registration) {
-      //         console.log(
-      //           "Service Worker registered with scope:",
-      //           registration.scope
-      //         );
-      //       })
-      //       .catch(function (error) {
-      //         console.log("Service Worker registration failed:", error);
-      //       });
-      //   });
-      // }
+      //Load the Service Worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("../../service-worker.js")
+            .then(function (registration) {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch(function (error) {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
     </script>
   </body>
 </html>
