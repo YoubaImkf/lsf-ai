@@ -46,39 +46,42 @@ const userService = {
   /**
    * Update a user in the database.
    * @param {number} userId - The ID of the user to update.
-   * @param {string} email - The user's email address.
-   * @param {string} password - The user's password.
+   * @param {string} email - The new email address.
+   * @param {string} username - The new username.
    * @returns {Promise<Object>} A promise that resolves to the updated user object.
    */
   updateUser: (userId, email, password) => {
-    return new Promise((resolve, reject) => {
-      // Validate input data
-      if (password && password.length < 8) {
-        reject(new Error("Password should be at least 8 characters long"));
-        return;
-      }
-
-      // if (email) {
-      //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      //   if (!emailRegex.test(email)) {
-      //     reject(new Error("Invalid email address"));
-      //     return;
-      //   }
-      // }
-
-      const query = "UPDATE `user` SET email = ?, password = ? WHERE id = ?";
-      const values = [userId, email, password];
-      db.query(query, values, (error) => {
-        if (error) {
-          reject(
-            new Error("Failed to get user by ID from the database" + error)
-          );
-        } else {
-          resolve({userId, email, password});
+    // Validate email format (basic validation)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return Promise.reject(new Error("Invalid email address"));
+    }
+  
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Check if the email already exists for another user
+        const emailExists = await userService.checkEmailExists(email, userId);
+        if (emailExists) {
+          return reject(new Error("Email address already exists"));
         }
-      });
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const query =
+          "UPDATE `user` SET email = ?, password = ? WHERE id = ?";
+        const values = [email, hashedPassword, userId];
+  
+        db.query(query, values, (error, result) => {
+          if (error) {
+            reject(new Error("Failed to update user in the database" + error));
+          } else {
+            resolve({ id: userId, email, password });
+          }
+        });
+      } catch (error) {
+        reject(new Error("Failed to update user" + error));
+      }
     });
   },
+  
 
   /**
    * Delete a user from the database.
