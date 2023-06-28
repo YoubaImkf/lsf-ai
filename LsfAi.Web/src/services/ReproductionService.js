@@ -75,13 +75,14 @@ class ReproductionService {
                 popup.style.display = "none";
                 }, 4000);
 
-                // Update the displayed letter to the next one in the sequence
-                this.currentLetterIndex ++;
-                const definitionSpan = document.getElementById("definition");
-                // Attribute the next letter to the current letter
-                this.definition = this.letterSequence[this.currentLetterIndex];
-                definitionSpan.textContent = this.definition;
-
+                if (this.currentLetterIndex !== this.letterSequence.length - 1) {
+                    // Update the displayed letter to the next one in the sequence
+                    this.currentLetterIndex ++;
+                    const definitionSpan = document.getElementById("definition");
+                    // Attribute the next letter to the current letter
+                    this.definition = this.letterSequence[this.currentLetterIndex];
+                    definitionSpan.textContent = this.definition;
+                }
             }
         }
     }
