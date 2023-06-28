@@ -184,31 +184,6 @@ body{
   }
 
   /**
-   *  Main Nav
-   */
-  .main-nav{
-    order: 1;
-    width: 75%;
-    align-self: center;
-    align-items: center;
-    justify-content: space-between;
-
-    border-radius: 1em;
-    box-shadow: 1px 4px 10px var(--shadow-color);
-
-    margin-top: 2em;
-    padding: 0.3em 2em;
-    
-    font-weight: bold;
-  }
-
-  .main-nav span{
-    font-size: 16px;
-    font-family: 'Montserrat-Medium';
-
-  }
-
-  /**
    *  Dictionary Header
    */
   .dictionary-header{

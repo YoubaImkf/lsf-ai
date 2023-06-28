@@ -31,6 +31,10 @@
     {
       "name": "/exercise/reproduction",
       "path": "../views/frontOffice/exercises/reproduction.html"
+    },
+    {
+      "name": "/exercise",
+      "path": "../views/frontOffice/exercises/exercise-list.html"
     }
   ]
 }
