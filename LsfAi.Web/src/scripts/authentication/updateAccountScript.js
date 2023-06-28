@@ -60,10 +60,21 @@ async function modifyUser(data) {
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
-      // Get form values
-      const email = user.email;
-      const password = form.elements.password.value;
-      const id = user.id;
+    // Get form values
+    const email = user.email;
+    const password = form.elements.password.value;
+    const id = user.id;
+
+    // Regex pattern for password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$!%?&~^(){}[\]=<>|+_,.;:/\\]{8,}$/;
+
+    // Check if password matches the regex pattern
+    if (!passwordRegex.test(password)) {
+      errorMessage.textContent = 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial.';
+      errorMessage.classList.add('error-message');
+      setTimeout(clearMessages, 2000);
+      return;
+    }
 
       let data = {
         id : id,
