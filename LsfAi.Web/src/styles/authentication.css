@@ -14,7 +14,7 @@ body {
 div.title-container {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 60px;
   margin-bottom: 40px;
 }
 
@@ -144,6 +144,10 @@ div.account-button a {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
+
+  div.form-container {
+    margin-bottom: 50px;
   }
   
 
