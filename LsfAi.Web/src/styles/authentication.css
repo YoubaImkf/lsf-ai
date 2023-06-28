@@ -1,5 +1,12 @@
 body {
-  background: #f5f5f5;
+  /*background-position: 10px;*/
+  background:
+    url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+    var(--main-bg-color);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /************ TITLE ***********************/
