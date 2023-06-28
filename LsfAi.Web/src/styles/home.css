@@ -211,4 +211,9 @@
   .home-content__card__text p{
     font-size: 24px;
   }
+
+  .home-content__card>div.img-div {
+    display: flex;
+    align-self: flex-start;
+  }
 }
