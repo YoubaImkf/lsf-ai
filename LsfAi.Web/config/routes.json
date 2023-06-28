@@ -27,14 +27,10 @@
     {
       "name": "/progress",
       "path": "../views/frontOffice/progress/progress-list.html"
-    }
-<<<<<<< HEAD
+    },
     {
       "name": "/exercice/reproduction",
       "path": "../views/frontOffice/exercises/reproduction.html"
     }
-
-=======
->>>>>>> 617ef53017ccd6c8f7f97fa8a3200c85d28ae8cf
   ]
 }
