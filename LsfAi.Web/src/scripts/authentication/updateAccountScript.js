@@ -24,6 +24,13 @@ usernameInput.value = user.username;
 emailInput.value = user.email;
 
 
+function clearMessages() {
+  confirmationMessage.textContent = "";
+  confirmationMessage.classList.remove("success-message");
+  errorMessage.textContent = "";
+  errorMessage.classList.remove("error-message");
+}
+
 async function modifyUser(data) {
   try {
     const response = await fetch('http://localhost:8282/users/' + data.id, {
@@ -39,11 +46,12 @@ async function modifyUser(data) {
       console.log('User updated:', updatedUser);
       confirmationMessage.textContent = 'Information du compte modifié';
       confirmationMessage.classList.add('success-message');
-
+      setTimeout(clearMessages, 2000);
     } else {
       console.error('Failed to update user:', response.status);
       errorMessage.textContent = 'Une erreur est survenue lors de la modification';
       errorMessage.classList.add('error-message');
+      setTimeout(clearMessages, 2000);
     }
   } catch (error) {
     console.error('Failed to update user:', error);
@@ -53,7 +61,7 @@ async function modifyUser(data) {
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
       // Get form values
-      const email = form.elements.email.value;
+      const email = user.email;
       const password = form.elements.password.value;
       const id = user.id;
 

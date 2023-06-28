@@ -65,9 +65,9 @@ div.form-container form input {
 }
 
 .success-message {
-  color: #bcfe57;
-  font-family: "Montserrat-SemiBold";
-  font-size: 16px;
+  color: #4fdb72;
+  font-family: "Montserrat-Medium";
+  font-size: 14px;
   margin-bottom: 20px;
 }
 

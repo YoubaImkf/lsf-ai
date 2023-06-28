@@ -22,8 +22,7 @@ function postData(data) {
       const { role, id, username, email } = data;
       // Store the user properties in the session storage
       sessionStorage.setItem('user', JSON.stringify(data));
-
-      window.location.href = "http://localhost:3000/dictionary";
+      window.location.href = "http://localhost:3000/";
     })
     .catch((error) => {
       emailError.textContent = "Your email or password is incorrect";
