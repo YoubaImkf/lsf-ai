@@ -8,7 +8,7 @@ class ReproductionService {
     this.maxPredictions = null;
     this.isIos = false;
     this.definition = "";
-    this.letterSequence = ["c", "b", "a", "d", "e"];
+    this.letterSequence = [];
     this.currentLetterIndex = 0;
   }
 
@@ -39,9 +39,17 @@ class ReproductionService {
 
       // Attribute the current letter
       const definitionSpan = document.getElementById("definition");
+      await this.getLetterSequence();
       this.definition = this.letterSequence[this.currentLetterIndex];
       definitionSpan.textContent = this.definition;
+
     }
+  }
+
+  async getLetterSequence() {
+    const response = await fetch("http://localhost:8282/exerciseContents/2");
+    const signsData = await response.json();
+    this.letterSequence  = signsData.map(item => item.question);
   }
 
   async loop() {
@@ -82,14 +90,48 @@ class ReproductionService {
                     // Attribute the next letter to the current letter
                     this.definition = this.letterSequence[this.currentLetterIndex];
                     definitionSpan.textContent = this.definition;
+                } else {
+                    const definitionSpan = document.getElementById("definition");
+                    definitionSpan.classList.toggle("success-message");
+                    definitionSpan.textContent = "VOUS AVEZ REUSSI L'EXERCICE !";
+
+                    setTimeout(() => {
+                       window.location.href = "http://localhost:3000/";
+                        }, 4000);
                 }
             }
         }
-    }
-
-
-    
+    }   
   }
+
+//   async createProgressions() {
+//     const user = sessionStorage.getItem("user");
+
+//     const exerciseData = await fetch("http://localhost:8282/progressions/user"+ user.id);
+//     if (!exerciseData.length > 0) {
+//         await fetch("http://localhost:8282/progressions/user" + user.id);
+//     }
+//     for ( let i = 0; i < exerciseData.length; i++) {
+//         if (exerciseData[i].exerciseId === 2) {
+//             const exercise = exerciseData[i];
+//             const progression = {
+//                 progression_level: exercise.progression_level + 1,
+//                 exercise_id: exercise.id,
+//                 user_id: user.id,
+//                 repeat_number: exercise.repeat_number + 1,
+//             }
+//             await fetch("http://localhost:8282/progressions/" + user.id, {
+//                 method: "PUT",
+//                 headers: {
+//                   "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(progression),
+//               })
+
+//         }   
+//     }
+//     }
+
 }
 
 export default ReproductionService;
