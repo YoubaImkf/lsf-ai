@@ -61,7 +61,7 @@ async function modifyUser(data) {
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
       // Get form values
-      const email = form.elements.email.value;
+      const email = user.email;
       const password = form.elements.password.value;
       const id = user.id;
 
