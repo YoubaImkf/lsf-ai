@@ -14,8 +14,7 @@ function postData(data) {
     .then((response) => {
       if (response.ok) {
         console.log("Successful registration");
-        // redirige vers page...
-        window.location.href = "http://localhost:3000/reproduction";
+        window.location.href = "http://localhost:3000/";
       } else {
         throw new Error("Registration failed");
       }
