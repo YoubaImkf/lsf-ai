@@ -135,7 +135,17 @@ div.account-button a {
 }
 
 @media only screen and (min-width: 768px) {
-  /******** Button ********/
+  body {
+    /*background-position: 10px;*/
+    background:
+      url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+      var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
 
   /* container */
 
@@ -157,6 +167,17 @@ div.account-button a {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
+  body {
+    /*background-position: 10px;*/
+    background:
+      url(../assets/backgrounds/mobile_home_bg.png) no-repeat center center fixed,
+      var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
   /************ TITLE ***********************/
 
   div.title-container {
