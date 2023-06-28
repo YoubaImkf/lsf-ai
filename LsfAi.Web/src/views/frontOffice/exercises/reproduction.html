@@ -8,14 +8,16 @@
     <meta http-equiv="Permissions-Policy" content="camera 'self'" />
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
-    <script type="module" defer src="../../../scripts/webcamScript.js"></script>
+    <script type="module" defer src="../../../scripts/reproductionScript.js"></script>
     <script type="module" defer src="../../../components/HeaderComponent.js"></script>
+    
+    <link rel="stylesheet" href="../../../styles/app.css"  />
+    <link rel="stylesheet" href="../../../styles/reproduction.css"  />
+    <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
+    <link rel="stylesheet" href="../../../styles/popup.css">
+    <link rel="icon" href="../../../assets/favicon48x48.svg">
     <title>Reproduction 🤙</title>
 
-    <link href="../../../styles/app.css" rel="stylesheet" />
-    <link href="../../../styles/reproduction.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
-    <link rel="icon" href="../../../assets/favicon48x48.svg">
   </head>
   <body>
     <script type="module">
@@ -34,12 +36,26 @@
       <!--<iframe src="https://www.youtube.com/embed/"> </iframe>-->
       <img src="../../../assets/images/video_reproduire.png" alt="Lettre A">
     </div>
-    
+
+    <div class="definition-container">
+      <span id="definition"></span>
+      <div class="definition-line"></div>
+    </div>
+
     <section class="webcam-section">
       <div id="webcam-container"></div>
     </section>
 
-    <div id="label-container"></div>
+    <div class="popup-container-show">
+      <div class="popup-container-valid">
+          <div class="popup-valid">
+              <svg class="popup-image-valid" fill="#A4FF18" width="50px" height="50px" viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 16.577l2.194-2.195 5.486 5.484L24.804 7.743 27 9.937l-14.32 14.32z"/>
+              </svg>
+          </div>
+      </div>
+    </div>
 
 
   </body>
