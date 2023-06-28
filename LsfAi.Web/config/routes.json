@@ -24,6 +24,10 @@
       "name": "/progress",
       "path": "../views/frontOffice/progress/progress-list.html"
     }
+    {
+      "name": "/exercice/reproduction",
+      "path": "../views/frontOffice/exercises/reproduction.html"
+    }
 
   ]
 }
