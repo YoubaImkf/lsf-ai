@@ -7,8 +7,10 @@
     <link href="../../styles/app.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles/nav-bar.css" />
     <link rel="stylesheet" href="../../styles/home.css" />
-
-    <title>Accueil</title>
+    <link rel="manifest" href="../../../manifest.json">
+    <link rel="icon" href="../../../assets/favicon48x48.svg" />
+    <title>Acceuil</title>
+    
   </head>
 
   <body>
@@ -25,6 +27,7 @@
       // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
       mainNavContainer.innerHTML = mainNavComponent.render();
     </script>
+
 
     <div class="container">
       <div class="main-nav-container"></div>
@@ -109,6 +112,25 @@
         }
       </script>
     </div>
+
+    <script>
+      //Load the Service Worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("../../service-worker.js")
+            .then(function (registration) {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch(function (error) {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
   </body>
 
 </html>

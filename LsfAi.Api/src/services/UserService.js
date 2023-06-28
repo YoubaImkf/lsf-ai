@@ -54,27 +54,27 @@ const userService = {
     return new Promise((resolve, reject) => {
       // Validate input data
       if (password && password.length < 8) {
-        reject(new Error("Password should be at least 8 characters long" + error));
+        reject(new Error("Password should be at least 8 characters long"));
         return;
       }
 
-      if (email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          reject(new Error("Invalid email address" + error));
-          return;
-        }
-      }
+      // if (email) {
+      //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //   if (!emailRegex.test(email)) {
+      //     reject(new Error("Invalid email address"));
+      //     return;
+      //   }
+      // }
 
       const query = "UPDATE `user` SET email = ?, password = ? WHERE id = ?";
-      const values = [email, password, userId];
+      const values = [userId, email, password];
       db.query(query, values, (error) => {
         if (error) {
           reject(
             new Error("Failed to get user by ID from the database" + error)
           );
         } else {
-          resolve({ id: userId, email });
+          resolve({userId, email, password});
         }
       });
     });

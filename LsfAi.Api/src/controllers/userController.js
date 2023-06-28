@@ -67,12 +67,13 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const userId = parseInt(req.params.id);
-    const userData = req.body;
-    const updatedUser = await userService.updateUser(userId, userData);
+    const { email, password } = req.body;
+    const updatedUser = await userService.updateUser(userId,email , password);
+    console.log("update : " + JSON.stringify(updatedUser));
     if (updatedUser) {
       res.json(updatedUser);
     } else {
-      res.status(404).json({ error: 'User not found' });
+      res.sendStatus(404);
     }
   } catch (error) {
     console.error(error);
@@ -114,7 +115,7 @@ const login = async (req, res) => {
     const user = await userService.login(email, password);
     if (user) {
       // res.json(user);
-      res.json({ role: user.role, username: user.username});
+      res.json({ role: user.role, username: user.username, email : user.email, id: user.id});
     } else {
       res.status(401).json({ error: 'Invalid credentials' });
     }
