@@ -14,7 +14,7 @@ function postData(data) {
     .then((response) => {
       if (response.ok) {
         console.log("Successful registration");
-        window.location.href = "http://localhost:3000/";
+        window.location.href = "http://localhost:3000/login";
       } else {
         throw new Error("Registration failed");
       }
