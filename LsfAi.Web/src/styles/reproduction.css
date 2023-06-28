@@ -109,6 +109,12 @@
     max-height: 496px;
 }
 
+.success-message {
+    color: #4fdb72;
+    font-family: "Montserrat-SemiBold";
+    font-size: 14px;
+  }
+
 @media (min-width: 664px) {
     
     .tutorial_video img {

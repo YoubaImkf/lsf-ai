@@ -83,7 +83,7 @@ async function validateForm() {
   }
 
   //check password complexity
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$!%?&~^(){}[\]=<>|+_,.;:/\\]{8,}$/;
   if (!passwordRegex.test(password)) {
     passwordError.textContent =
       "Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial";
