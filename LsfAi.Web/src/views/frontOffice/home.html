@@ -7,7 +7,7 @@
     <link href="../../styles/app.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles/nav-bar.css" />
     <link rel="stylesheet" href="../../styles/home.css" />
-    <link rel="manifest" href="../../../manifest.json">
+    <link rel="manifest" href="../../manifest.json">
     <link rel="icon" href="../../../assets/favicon48x48.svg" />
     <title>Acceuil</title>
     
@@ -96,7 +96,7 @@
         if ("serviceWorker" in navigator) {
           window.addEventListener("load", function () {
             navigator.serviceWorker
-              .register("/src/service-worker.js")
+              .register("../../service-worker.js")
               .then(function (registration) {
                 console.log(
                   "Service Worker registered with scope:",
