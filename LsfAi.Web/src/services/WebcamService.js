@@ -1,4 +1,4 @@
-class WebCamComponent {
+class WebCamService{
   constructor(modelURL, containerId) {
     this.modelURL = modelURL;
     this.containerId = containerId;
@@ -34,6 +34,7 @@ class WebCamComponent {
 
     const definitionSpan = document.getElementById("definition");
     this.definition = definitionSpan.textContent;
+
   }
 
   async loop() {
@@ -73,6 +74,9 @@ class WebCamComponent {
     }
     
   }
+ 
+
+
 }
 
-export default WebCamComponent;
+export default WebCamService;
