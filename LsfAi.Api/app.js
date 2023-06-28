@@ -3,6 +3,7 @@ const app = express();
 const usersRouter = require('./src/routes/usersRoute.js')
 const signRouter = require('./src/routes/signRoute.js')
 const progressionRouter = require('./src/routes/progressionRoute.js')
+const exercisesRouter = require('./src/routes/exerciseRoute.js')
 
 // Middleware used to enable CORS with various options.
 const cors = require('cors');
@@ -21,6 +22,9 @@ app.use('/signs', signRouter);
 
 // Progression routes
 app.use('/progressions', progressionRouter);
+
+// Progression routes
+app.use('/exercises', exercisesRouter);
 
 
 // Middleware for error handling
