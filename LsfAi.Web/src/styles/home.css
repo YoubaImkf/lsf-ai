@@ -42,6 +42,10 @@
   height: 59px;
 }
 
+.home-main__heading-section {
+  align-self: flex-start;
+}
+
 .home-main__heading {
   font-family: 'Montserrat-SemiBold';
   font-size: 36px;

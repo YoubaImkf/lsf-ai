@@ -82,7 +82,7 @@ body{
 
   border-radius: 0.7em;
 
-  background-color: var(--main-bg-color);
+  background-color: var(--second-bg-color);
 }
 
 .sign-card__image {

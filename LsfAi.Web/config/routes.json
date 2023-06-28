@@ -29,7 +29,7 @@
       "path": "../views/frontOffice/progress/progress-list.html"
     },
     {
-      "name": "/exercice/reproduction",
+      "name": "/exercise/reproduction",
       "path": "../views/frontOffice/exercises/reproduction.html"
     }
   ]
