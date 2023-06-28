@@ -1,0 +1,28 @@
+
+
+.exercise-list__set__card {
+  border-radius: 1em;
+  box-shadow: 1px 4px 10px var(--shadow-color);
+  position: relative;
+  padding: 0.5em 0;
+  font-size: 1em;
+  font-weight: bold;
+  height: 94px;
+  margin-top: 35px;
+  padding: 10% 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFF;
+
+  width: 80%;
+
+}
+
+.exercise-list__heading{
+
+}
+
+.exercise-list__set__heading{
+  font-size: 12px;
+}

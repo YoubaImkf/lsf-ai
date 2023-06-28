@@ -35,6 +35,10 @@
     {
       "name": "/exercise",
       "path": "../views/frontOffice/exercises/exercise-list.html"
+    },
+    {
+      "name": "/disclaimer",
+      "path": "../views/miscellaneous/disclaimer.html"
     }
   ]
 }
