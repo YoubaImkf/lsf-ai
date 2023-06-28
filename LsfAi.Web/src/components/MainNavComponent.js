@@ -1,5 +1,12 @@
 class MainNavComponent {
   render() {
+    let accountLink;
+    if(sessionStorage.getItem('user') == null) {
+      accountLink = "/login";
+    } else {
+      accountLink = "/account";
+    }
+    
     return `
     <nav class="main-nav">
       <a class="desktop-only" href="/">
@@ -29,7 +36,7 @@ class MainNavComponent {
           <span>Dictionnaire</span>
         </div>
       </a>
-      <a href="/account">
+      <a href="${accountLink}">
         <div class="main-nav__bloc">
           <img id="nav-h=account-icon" class="main-nav__bloc__icon mobile-only" src="../../../assets/menu-icons/account-icon.svg"
             alt="Mon Compte" />
