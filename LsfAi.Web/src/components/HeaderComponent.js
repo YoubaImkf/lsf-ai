@@ -1,6 +1,8 @@
 class HeaderComponent {
     render(titleText) {
       return `
+      <link rel="stylesheet" href="../../../styles/HeaderComponent.css">
+
         <header class="header">
           <ul>
             <li>
