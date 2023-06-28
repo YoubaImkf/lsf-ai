@@ -13,6 +13,9 @@ const passwordInput = document.querySelector('#password');
 // Get the button
 const updateButton = document.querySelector('#modify-account-button');
 
+// Get messages status
+const confirmationMessage = document.querySelector('#confirmation-message');
+const errorMessage = document.querySelector('#error-message');
 
 // Put the username in the input
 usernameInput.value = user.username;
@@ -20,54 +23,32 @@ usernameInput.value = user.username;
 // Put the email in the input
 emailInput.value = user.email;
 
-// Modify the input css to seems like a disabled input
 
-// updateButton.addEventListener("click",enableInput(emailInput));
+async function modifyUser(data) {
+  try {
+    const response = await fetch('http://localhost:8282/users/' + data.id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
 
-// Modify user in the database
+    if (response.ok) {
+      const updatedUser = await response.json();
+      console.log('User updated:', updatedUser);
+      confirmationMessage.textContent = 'Information du compte modifié';
+      confirmationMessage.classList.add('success-message');
 
-// const modifyUser = async (user) => {
-//     const response = await fetch(`http://localhost:8282/users/${user.id}`, {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(user),
-//     }).then((response) => {
-//         console.log(response);
-//         if(response.ok) {
-//             const responseData = response.json();
-//             console.log('User modified : ', responseData);
-//         }else {
-//             throw new Error('Failed to modify user');
-//         }
-//     })
-//     .catch((error) => {
-//         console.error('Error modifying user:', error);
-//     });
-// };
-
-const modifyUser = async (user) => {
-    try {
-      const response = await fetch(`http://localhost:8282/users/${user.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      });
-  
-      console.log(response);
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log('User modified:', responseData);
-      } else {
-        throw new Error('Failed to modify user');
-      }
-    } catch (error) {
-      console.error('Error modifying user:', error);
+    } else {
+      console.error('Failed to update user:', response.status);
+      errorMessage.textContent = 'Une erreur est survenue lors de la modification';
+      errorMessage.classList.add('error-message');
     }
-  };
+  } catch (error) {
+    console.error('Failed to update user:', error);
+  }
+}
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -75,7 +56,7 @@ form.addEventListener("submit", async (event) => {
       const email = form.elements.email.value;
       const password = form.elements.password.value;
       const id = user.id;
-  
+
       let data = {
         id : id,
         email : email,

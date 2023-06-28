@@ -61,20 +61,17 @@ const createUser = async (req, res) => {
  * Update a user by ID.
  * @route PUT /users/{id}
  * @param {number} id - The ID of the user to be updated.
- * @param {object} user - Updated information about the user.
+ * @param {object} user - The updated user data.
+ * @param {string} user.email - The user's new email address.
+ * @param {string} user.username - The user's new username.
  * @returns {Promise<object>} A promise that resolves to the updated user object.
  */
 const updateUser = async (req, res) => {
   try {
     const userId = parseInt(req.params.id);
     const { email, password } = req.body;
-    const updatedUser = await userService.updateUser(userId,email , password);
-    console.log("update : " + JSON.stringify(updatedUser));
-    if (updatedUser) {
-      res.json(updatedUser);
-    } else {
-      res.sendStatus(404);
-    }
+    const updatedUser = await userService.updateUser(userId, email, password);
+    res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to update user' });
