@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
 .container {
     display: flex;
     flex-direction: column;
@@ -54,7 +50,7 @@
 }
 
 .exercise .exercise-cards__card {
-
+    cursor: pointer;
     align-self: center;
     align-items: center;
     border-radius: 1em;
@@ -160,4 +156,4 @@ hr {
     }
 
 }
->>>>>>> 74e49c3ef9c0762aba9528a18193506cbe31a3d2
+
