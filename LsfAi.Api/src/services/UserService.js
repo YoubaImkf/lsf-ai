@@ -51,19 +51,39 @@ const userService = {
    * @returns {Promise<Object>} A promise that resolves to the updated user object.
    */
   updateUser: (userId, email, password) => {
+    if (
+      typeof userId !== "number" ||
+      typeof email !== "string" ||
+      typeof password !== "string"
+    ) {
+      return Promise.reject(new Error("Invalid email or password"));
+    }
     // Validate email format (basic validation)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return Promise.reject(new Error("Invalid email address"));
     }
-  
+
+    if (password.length < 8) {
+      return Promise.reject(
+        new Error("Password should be at least 8 characters long")
+      );
+    }
+
     return new Promise(async (resolve, reject) => {
       try {
-        // Check if the email already exists for another user
-        const emailExists = await userService.checkEmailExists(email, userId);
-        if (emailExists) {
-          return reject(new Error("Email address already exists"));
+        // Perform additional password complexity checks
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$'!%?&"~^(){}[\]=<>|+_,.;:/\\ùàéè]{8,}$/;
+
+
+        if (!passwordRegex.test(password)) {
+          return reject(
+            new Error(
+              "Password should be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character"
+            )
+          );
         }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const query =
           "UPDATE `user` SET email = ?, password = ? WHERE id = ?";
@@ -179,7 +199,7 @@ const userService = {
 
         // Perform additional password complexity checks
         const passwordRegex =
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$'!%?&"~^(){}[\]=<>|+_,.;:/\\ùàéè]{8,}$/;
         if (!passwordRegex.test(password)) {
           return reject(
             new Error(
