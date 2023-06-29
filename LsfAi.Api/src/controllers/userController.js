@@ -8,6 +8,7 @@ const userService = require('../services/UserService');
 const getAllUsers = async (req, res) => {
   try {
     const users = await userService.getUsers();
+    res.setHeader('Cache-Control', 'public, max-age=3600');
     res.json(users);
   } catch (error) {
     console.error(error);
@@ -26,6 +27,7 @@ const getUserById = async (req, res) => {
     const userId = parseInt(req.params.id);
     const user = await userService.getUserById(userId);
     if (user) {
+      res.setHeader('Cache-Control', 'public, max-age=3600');
       res.json(user);
     } else {
       res.status(404).json({ error: 'User not found' });

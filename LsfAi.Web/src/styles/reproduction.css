@@ -114,18 +114,29 @@
     font-size: 14px;
   }
 
-@media (min-width: 664px) {
+@media (min-height: 969px) and (min-width: 1250px) {
     
-    .tutorial_video img {
+    .tutorial_video video {
         width: 100%;
-        height: 270px;
+        height: 250px;
         max-width: 664px;
         max-height: 307px;
 
     }
+
+    #webcam-container canvas {
+        width: 400px;
+        height: 496px;
+        max-width: 100%;
+        max-height: none;
+        margin-top: auto;
+    }
+    .webcam-section::before {
+        height: 496px;
+    }
 }
-/* 
-@media (max-width: 400px) {
+
+/* @media (max-width: 400px) {
     #webcam-container {
         align-items: flex-end;
         height: 100vh;
