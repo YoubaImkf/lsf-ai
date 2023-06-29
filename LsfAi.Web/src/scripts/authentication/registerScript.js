@@ -14,8 +14,7 @@ function postData(data) {
     .then((response) => {
       if (response.ok) {
         console.log("Successful registration");
-        // redirige vers page...
-        window.location.href = "http://localhost:3000/reproduction";
+        window.location.href = "http://localhost:3000/login";
       } else {
         throw new Error("Registration failed");
       }
@@ -70,33 +69,33 @@ async function validateForm() {
 
   // Check if email, username, and password are filled
   if (!email) {
-    emailError.textContent = "Email is required";
+    emailError.textContent = "L'email est obligatoire";
     form.elements.email.classList.add("error-input");
     return false;
   }
   if (!username) {
-    usernameError.textContent = "Username is required";
+    usernameError.textContent = "Le nom d'utilisateur est requis";
     form.elements.username.classList.add("error-input");
     return false;
   }
   if (!password) {
-    passwordError.textContent = "Password is required";
+    passwordError.textContent = "Le mot de passe est requis";
     form.elements.password.classList.add("error-input");
     return false;
   }
 
   // Check password length
   if (password.length < 8) {
-    passwordError.textContent = "Password must be at least 8 characters long";
+    passwordError.textContent = "Le mot de passe doit comporter au moins 8 caractères";
     form.elements.password.classList.add("error-input");
     return false;
   }
 
   // Check password complexity
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$'!%?&"~^(){}[\]=<>|+_,.;:/\\ùàéè]{8,}$/;
   if (!passwordRegex.test(password)) {
     passwordError.textContent =
-      "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character";
+      "Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial.";
     form.elements.password.classList.add("error-input");
     return false;
   }

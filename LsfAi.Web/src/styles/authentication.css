@@ -1,5 +1,12 @@
 body {
-  background: #f5f5f5;
+  /*background-position: 10px;*/
+  background:
+    url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+    var(--main-bg-color);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /************ TITLE ***********************/
@@ -7,7 +14,7 @@ body {
 div.title-container {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 60px;
   margin-bottom: 40px;
 }
 
@@ -65,9 +72,9 @@ div.form-container form input {
 }
 
 .success-message {
-  color: #bcfe57;
-  font-family: "Montserrat-SemiBold";
-  font-size: 16px;
+  color: #4fdb72;
+  font-family: "Montserrat-Medium";
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
@@ -128,7 +135,21 @@ div.account-button a {
 }
 
 @media only screen and (min-width: 768px) {
-  /******** Button ********/
+  body {
+    /*background-position: 10px;*/
+    background:
+      url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+      var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  div.form-container {
+    margin-bottom: 50px;
+  }
+  
 
   /* container */
 
@@ -150,6 +171,17 @@ div.account-button a {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
+  body {
+    /*background-position: 10px;*/
+    background:
+      url(../assets/backgrounds/mobile_home_bg.png) no-repeat center center fixed,
+      var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
   /************ TITLE ***********************/
 
   div.title-container {
