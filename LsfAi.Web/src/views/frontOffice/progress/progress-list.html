@@ -13,7 +13,7 @@
         src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
     <!-- COMPONENTS -->
     <script type="module" defer src="../../../../app.js"></script>
-    <script src="../../../scripts/progress.js"></script>
+    <script defer src="../../../scripts/progressScript.js"></script>
     <!-- CSS -->
     <link href="../../../styles/app.css" rel="stylesheet" />
     <link href="../../../styles/progress.css" rel="stylesheet" />
@@ -33,6 +33,7 @@
 </script>
 
 <body class="container">
+    <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
 
     <div class="nav-cont"></div>
 
@@ -40,32 +41,33 @@
         <div class="main-info">
             <div class="pie">
                 <div class="level-progress">
-                    <p class="level-value">Niv 2</p>
+                    <p class="level-value"></p>
                 </div>
-                <p id="level-content">+12345 till level 3</p>
-                <h1 class="username">User Name</h1>
+                <p id="level-content"></p>
+                <h1 class="username"></h1>
+                <div class="modify-account"><a href="/account">Modifier mon compte</a></div>
             </div>
         </div>
 
         <div class="exercise-cards">
-            <div class="exercise-cards__card">
-                <h3>Paires signe-définition</h3>
 
+            <div class="exercise-cards__card " id="reproductionExo">
+                <h3 class="nomExoCarte">Reproduction de signe</h3>
                 <div class="pie small">
                     <div class="level-progress">
-                        <p class="level-value">Niv 2</p>
+                        <p class="level-value" id="level-value-reproduction">Niv 1</p>
                     </div>
                 </div>
             </div>
             <div class="exercise-cards__card">
-                <h3>Reproduction des signes</h3>
+                <h3 class="nomExoCarte">Paires signe-définition</h3>
+
                 <div class="pie small">
                     <div class="level-progress">
-                        <p class="level-value">Niv 2</p>
+                        <p class="level-value" id="level-value-paires">Niv 1</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 

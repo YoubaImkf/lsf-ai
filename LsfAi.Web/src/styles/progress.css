@@ -1,10 +1,14 @@
 /******************************************************/
 .container {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F5F5F5;
 }
 
 .progress .username {
     font-size: 35px;
+
     margin-bottom: 40px;
     text-align: center;
 }
@@ -65,7 +69,7 @@
 
 .small .level-value {
     position: relative;
-    font-size: 10px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -81,12 +85,12 @@
 .progress .main-info {
     margin-top: 100px;
     display: flex;
-    /* text-align: center; */
+
 }
 
 .progress .exercise-cards {
     width: 90%;
-    /* margin-top: 100px; */
+
 }
 
 .progress .exercise-cards__card {
@@ -114,23 +118,51 @@
 
 }
 
-/* DESKTOP */
-.container {
-    background:
-        url(../assets/backgrounds/desktop_bg_home.png) no-repeat center center fixed,
-        var(--main-bg-color);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.modify-account a {
+    color: var(--main-color);
+    font-size: 18px;
 
 }
 
+.modify-account a:hover {
+
+    font-weight: 700;
+}
+
+/* DESKTOP */
+
+
 
 @media (min-width: 768px) {
+    .container {
+        background:
+            url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+            var(--main-bg-color);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
     .main-info {
         width: 90%;
 
+
+    }
+
+    .modify-account {
+        position: absolute;
+        right: 210px;
+    }
+
+    .modify-account a {
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .modify-account a:hover {
+        color: var(--main-color);
 
     }
 

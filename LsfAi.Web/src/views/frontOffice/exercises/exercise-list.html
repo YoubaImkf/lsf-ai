@@ -1,47 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PERMISSION -->
+  <meta http-equiv="Permissions-Policy" content="camera 'self'" />
+  <!-- TENSORFLOW -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
+  <!-- COMPONENTS -->
+  <script type="module" defer src="../../../../app.js"></script>
+  <script defer src="../../../scripts/exercise-listScript.js"></script>
+  <!-- CSS -->
+  <link href="../../../styles/app.css" rel="stylesheet" />
+  <link href="../../../styles/exercise-list.css" rel="stylesheet" />
+  <link href="../../../styles/nav-bar.css" rel="stylesheet" />
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../styles/app.css">
-    <link rel="stylesheet" href="../../../styles/exercise-list.css">
-    <title>Liste des exercices</title>
-  </head>
+  <!-- ICON -->
+  <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
 
-  <body>
-    <script type="module">
-      //Import components
-      import MainNavComponent from "../../../components/MainNavComponent.js";
+  <title>exercise</title>
 
-      //Create components
-      const mainNavComponent = new MainNavComponent();
+</head>
+<script type="module">
+  import MainNavComponent from '../../../components/MainNavComponent.js';
+  const mainComponent = new MainNavComponent();
+  const mainContainer = document.querySelector('.nav-cont');
+  mainContainer.innerHTML = mainComponent.render();
+</script>
 
-      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
-      const mainNavContainer = document.querySelector(".main-nav-container");
+<body class="container">
+  <link rel="icon" href="../../../assets/logo_LSF_AI.svg">
 
-      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
-      mainNavContainer.innerHTML = mainNavComponent.render();
+  <div class="nav-cont"></div>
+  <header class="exercise-header">
+    <h1 class="exercise-header__heading">Liste Exercice</h1>
+  </header>
+  <section class="exercise">
+    <h1 class="exercise-Appear">Liste Exercice</h1>
+    <div class="exercise-cards">
+      <div class="repre">
+        <p>Reproduction de signe</p>
+        <div class="exercise-cards__card reproductionExo">
+          <h3 class="nomExoCarte">Reproduction</h3>
+          <p class="exercise-level">Niv. 1</p>
+        </div>
+        <div class="line"></div>
 
-      //Import components
-      import ExerciseCardComponent from "../../../components/ExerciseCardComponent.js";
+        <div class="exercise-cards__card reproductionExo">
+          <h3 class="nomExoCarte">Reproduction</h3>
+          <p class="exercise-level">Niv. 2</p>
+        </div>
+        <div class="line"></div>
 
-      //Create components
-      const exerciseCardComponent = new MainNavComponent();
+        <div class="exercise-cards__card reproductionExo">
+          <h3 class="nomExoCarte">Reproduction</h3>
+          <p class="exercise-level">Niv. 3</p>
+        </div>
+        <div class="line"></div>
+      </div>
 
-      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
-      const exerciseListContainer = document.querySelector(".exercise-list");
+      <hr>
+      <p>Paires signe-définition</p>
+      <div class="exercise-cards__card">
+        <h3 class="nomExoCarte">Paires</h3>
+        <p class="exercise-level">Niv. 1</p>
+      </div>
+      <div class="line"></div>
 
-      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
-      exerciseListContainer.innerHTML = exerceiseCardComponent.render();
-    </script>
-    <div class="container">
-      <div class="main-nav-container"></div>
-      <h1 class="main__heading">Liste Exercices</h1>
-      <main class="exercise-list">
-      </main>
+      <div class="exercise-cards__card">
+        <h3 class="nomExoCarte">Paires</h3>
+        <p class="exercise-level">Niv. 2</p>
+      </div>
+      <div class="line"></div>
+
+      <div class="exercise-cards__card">
+        <h3 class="nomExoCarte">Paires</h3>
+        <p class="exercise-level">Niv. 3</p>
+      </div>
+      <div class="line"></div>
     </div>
-  </body>
+
+  </section>
+
+</body>
 
 </html>
