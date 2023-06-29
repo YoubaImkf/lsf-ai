@@ -142,7 +142,7 @@
     flex-flow: row-reverse wrap;
     justify-content: space-around;
     
-    margin-top: 105px;
+    margin-top: 55px;
   }
 
   .home-main__subheading {
@@ -219,5 +219,9 @@
   .home-content__card>div.img-div {
     display: flex;
     align-self: flex-start;
+  }
+
+  .footer{
+    text-align: center;
   }
 }

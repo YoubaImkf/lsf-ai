@@ -10,7 +10,7 @@
  *  Dictionary Container (body)
  */
 
-body{
+body {
   background:
     url(../assets/backgrounds/mobile-dictionary-bg.png) no-repeat center center fixed,
     var(--main-bg-color);
@@ -24,7 +24,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;  
+  min-height: 100vh;
 }
 
 /**
@@ -57,6 +57,7 @@ body{
 
 .dictionary-main__content {
   margin-top: 0.5em;
+  margin-bottom: 82px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
@@ -72,7 +73,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  
+
   width: 4.5em;
   height: 7em;
   margin-top: 1em;
@@ -98,7 +99,7 @@ body{
  *  Letter Popup 
  */
 
-.flex-container{
+.flex-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -108,7 +109,7 @@ body{
   height: 100%;
 }
 
-.letter-popup{  
+.letter-popup {
   border-radius: 1em;
   background-color: var(--second-bg-color);
   box-shadow: 0 4px 10px var(--shadow-color);
@@ -126,7 +127,7 @@ body{
   cursor: default;
 }
 
-.letter-popup__close{
+.letter-popup__close {
   padding-right: 0.4em;
   font-size: 3.5em;
   font-family: 'Montserrat-SemiBold';
@@ -135,16 +136,16 @@ body{
   cursor: pointer;
 }
 
-.letter-popup__definition{
+.letter-popup__definition {
   font-size: 3em;
 }
 
-.letter-popup__image{
+.letter-popup__image {
   height: 300px;
   width: 250px;
 }
 
-.letter-popup a{
+.letter-popup a {
   width: 100%;
   text-align: center;
   padding: 1em 0;
@@ -153,13 +154,13 @@ body{
 
   border-bottom-left-radius: 0.8em;
   border-bottom-right-radius: 0.8em;
-  
+
   background-color: var(--main-color);
   color: white;
 
   font-family: 'Montserrat-SemiBold';
   font-size: 1.2em;
-  
+
   cursor: pointer;
 
   transition: 200ms ease-in-out;
@@ -167,8 +168,8 @@ body{
 }
 
 
-.letter-popup a:hover{
-  
+.letter-popup a:hover {
+
   background-color: var(--main-color-light);
   color: var(--main-color);
 }
@@ -179,14 +180,25 @@ body{
 
 @media (min-width: 768px) {
 
-  .container{
+  .container {
     align-items: center;
+
+  }
+
+  body {
+    background:
+      url(../assets/backgrounds/desktop_home_bg.png) no-repeat center center fixed,
+      var(--main-bg-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   /**
    *  Dictionary Header
    */
-  .dictionary-header{
+  .dictionary-header {
     order: 2;
     background-color: transparent;
     box-shadow: none;
@@ -195,50 +207,50 @@ body{
     margin-top: 2.5em;
   }
 
-  .dictionary-header__heading{
+  .dictionary-header__heading {
     font-family: 'Montserrat-SemiBold';
     font-size: 1.5em;
   }
 
   /**
    *  Dictionary Main
-   */  
-  .dictionary-main{
+   */
+  .dictionary-main {
     order: 3;
     width: 65%;
   }
-  
-  .dictionary-main__subheading{
-    font-size: 1em;      
+
+  .dictionary-main__subheading {
+    font-size: 1em;
   }
 
-  .dictionary-main__content{
+  .dictionary-main__content {
     gap: 2.5em;
   }
 
   /**
    *  Sign Card
    */
-  .sign-card{
+  .sign-card {
     width: 6.75em;
     height: 10.5em;
   }
 
-  .sign-card__image{
+  .sign-card__image {
     width: 7em;
     height: 7em;
   }
-  
-  .sign-card__definition{
+
+  .sign-card__definition {
     font-size: 1.7em;
   }
 
-  .letter-popup{
+  .letter-popup {
     width: 30em;
     height: 35em;
   }
 
-  .letter-popup__image{
+  .letter-popup__image {
     height: 350px;
     width: 350px;
   }
