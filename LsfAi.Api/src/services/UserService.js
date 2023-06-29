@@ -72,10 +72,10 @@ const userService = {
 
     return new Promise(async (resolve, reject) => {
       try {
-        
         // Perform additional password complexity checks
-        const passwordRegex =
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$'!%?&"~^(){}[\]=<>|+_,.;:/\\ùàéè]{8,}$/;
+
+
         if (!passwordRegex.test(password)) {
           return reject(
             new Error(
@@ -199,7 +199,7 @@ const userService = {
 
         // Perform additional password complexity checks
         const passwordRegex =
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&~^(){}[\]=<>|+_,.;:/\\])[A-Za-z\d@$'!%?&"~^(){}[\]=<>|+_,.;:/\\ùàéè]{8,}$/;
         if (!passwordRegex.test(password)) {
           return reject(
             new Error(
