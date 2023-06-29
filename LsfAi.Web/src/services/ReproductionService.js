@@ -8,8 +8,11 @@ class ReproductionService {
     this.maxPredictions = null;
     this.isIos = false;
     this.definition = "";
+    this.uri = "";
     this.letterSequence = [];
+    this.videoUri = [];
     this.currentLetterIndex = 0;
+    this.currentSrcIndex = 0;
   }
 
   async init() {
@@ -39,9 +42,13 @@ class ReproductionService {
 
       // Attribute the current letter
       const definitionSpan = document.getElementById("definition");
+
       await this.getLetterSequence();
+
       this.definition = this.letterSequence[this.currentLetterIndex];
       definitionSpan.textContent = this.definition;
+
+      await this.videoLoad();
 
     }
   }
@@ -49,7 +56,19 @@ class ReproductionService {
   async getLetterSequence() {
     const response = await fetch("http://localhost:8282/exerciseContents/2");
     const signsData = await response.json();
-    this.letterSequence  = signsData.map(item => item.question);
+
+    this.letterSequence  = signsData.map(item => item.answer);
+    this.videoUri   = signsData.map(item => item.question);
+
+  }
+
+  async videoLoad(){
+    const video = document.getElementById("myVideo");
+
+    this.uri = this.videoUri[this.currentSrcIndex];
+    video.src = this.uri;
+    video.play();
+    console.log(video.src);
   }
 
   async loop() {
@@ -57,6 +76,7 @@ class ReproductionService {
       window.location.href === "http://localhost:3000/exercise/reproduction"
     ) {
       this.webcam.update();
+      
       await this.predict();
     }
     window.requestAnimationFrame(() => this.loop());
@@ -86,10 +106,19 @@ class ReproductionService {
                 if (this.currentLetterIndex !== this.letterSequence.length - 1) {
                     // Update the displayed letter to the next one in the sequence
                     this.currentLetterIndex ++;
+                    this.currentSrcIndex ++;
+
                     const definitionSpan = document.getElementById("definition");
+                    const video = document.getElementById("mp4_src");
+
+
                     // Attribute the next letter to the current letter
                     this.definition = this.letterSequence[this.currentLetterIndex];
                     definitionSpan.textContent = this.definition;
+
+                    // Attribute the next src to the current src
+                    await this.videoLoad();
+
                 } else {
                     const definitionSpan = document.getElementById("definition");
                     definitionSpan.classList.toggle("success-message");

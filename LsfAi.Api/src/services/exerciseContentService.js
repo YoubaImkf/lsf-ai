@@ -26,7 +26,7 @@ const exerciseContentService = {
      */
     getExerciseContentById: (id) => {
         return new Promise((resolve, reject) => {
-            const query = 'SELECT `question` FROM `exercise_content` where `exercise_id` = ?';
+            const query = 'SELECT `answer`, `question`  FROM `exercise_content` where `exercise_id` = ?';
 
             db.query(query, [id], (error, results) => {
                 if (error) {
@@ -36,7 +36,8 @@ const exerciseContentService = {
                 }
             });
         });
-    }
+    },
+
 };
 
 module.exports = exerciseContentService;
