@@ -8,6 +8,8 @@ class MainNavComponent {
     }
     
     return `
+    <link rel="stylesheet" href="../../styles/nav-bar.css" />
+
     <nav class="main-nav">
       <a class="desktop-only" href="/">
         <div class="main-nav__bloc">

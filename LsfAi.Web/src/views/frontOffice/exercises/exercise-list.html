@@ -5,11 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../styles/app.css">
+    <link rel="stylesheet" href="../../../styles/exercise-list.css">
     <title>Liste des exercices</title>
   </head>
 
   <body>
+    <script type="module">
+      //Import components
+      import MainNavComponent from "../../../components/MainNavComponent.js";
 
+      //Create components
+      const mainNavComponent = new MainNavComponent();
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const mainNavContainer = document.querySelector(".main-nav-container");
+
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+      mainNavContainer.innerHTML = mainNavComponent.render();
+
+      //Import components
+      import ExerciseCardComponent from "../../../components/ExerciseCardComponent.js";
+
+      //Create components
+      const exerciseCardComponent = new MainNavComponent();
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const exerciseListContainer = document.querySelector(".exercise-list");
+
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+      exerciseListContainer.innerHTML = exerceiseCardComponent.render();
+    </script>
+    <div class="container">
+      <div class="main-nav-container"></div>
+      <h1 class="main__heading">Liste Exercices</h1>
+      <main class="exercise-list">
+      </main>
+    </div>
   </body>
 
 </html>

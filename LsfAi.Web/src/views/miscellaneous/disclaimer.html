@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/app.css" />
+    <link rel="stylesheet" href="../../styles/disclaimer.css" />
+
+    <title>Mentions légales</title>
+  </head>
+
+  <body>
+    <script type="module">
+      //Import components
+      import MainNavComponent from "../../../components/MainNavComponent.js";
+
+      //Create components
+      const mainNavComponent = new MainNavComponent();
+
+      // Sélectionnez l'élément HTML où vous souhaitez afficher le composant
+      const mainNavContainer = document.querySelector(".main-nav-container");
+
+      // Générez le HTML du composant en appelant la méthode render avec le texte du titre personnalisé ou non
+      mainNavContainer.innerHTML = mainNavComponent.render();
+    </script>
+
+
+    <div class="container">
+      <div class="main-nav-container"></div>
+      <main class="disclaimer-main">
+        <h1>Mentions légales</h1>
+        <article>
+          <p>
+            L’application est édité et exploité par les étudiants de Sorbonne Université au 11 r Pierre et Marie Curie,
+            75005 Paris.
+
+            Les étudiants ayant développé le projet sont Salim Tizi, Youba Imakhlaf, Kaira Canaria, Firdaousse Moussa.
+
+            Le site web est hébergé par
+
+            Contact :
+            tizi_salim@yahoo.fr
+          </p>
+        </article>
+        <h1>RGPD</h1>
+        <article>
+          <div>
+            <h2>Droits de l’internaute :</h2>
+            <p>
+              Vous disposez d’un droit d’accès et de rectification concernant les données collectées sur ce site, dans
+              les
+              conditions prévues par la loi n°78-17 du 6 janvier 1978 (modifiée) relative à l’informatique, aux fichiers
+              et
+              aux libertés. Pour l’exercer, il suffit d’adresser un courriel à l’adresse suivante :
+              tizi_salim@yahoo.fr.
+              L'internaute peut également introduire une réclamation auprès de la Cnil.
+            </p>
+          </div>
+          <div>
+            <h2>Finalités des données collectées :</h2>
+            <p>
+              Email : L’email a pour but d’identifier l’utilisateur et lui permettre de faire vérifier son compte ou de
+              recevoir un mail pour accéder à son compte en cas d’oubli du mot de passe.
+            </p>
+          </div>
+          <div>
+            <h2>Base légale justifiant le traitement :</h2>
+            <p>
+              Consentement de l’utilisateur.
+            </p>
+          </div>
+          <div>
+            <h2>Caractère obligatoire ou facultatif du recueil de données personnelles :</h2>
+            <p>
+              En cas de non fourniture du mail, vous ne pourrez pas créer de compte utilisateur et ainsi n’aurez pas
+              accès
+              à
+              la page de progression.
+            </p>
+          </div>
+          <div>
+            <h2>Destinataires des données personnelles :</h2>
+            <p>
+              Les données collectées sont réservées à un usage purement interne. Nous ne procédons à aucune cession ni
+              commercialisation de vos données.
+            </p>
+          </div>
+          <div>
+            <h2>La durée de conservation des données :</h2>
+            <p>
+              Les données seront conservées jusqu’à la suppression du compte par l’utilisateur.
+            </p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+
+</html>
