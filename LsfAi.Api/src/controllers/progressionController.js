@@ -18,23 +18,25 @@ const getAverageProgressionByUser = async (req, res) => {
     let averageUserProgression = {};
 
     maxProgressions.forEach((maxProgression, index) => {
-      avgProgressionsList.push({
-        'exerciceId': maxProgression.exercise_id,
-        'exerciceDescription': userProgressions[index].description,
-        'exerciseLevel': userProgressions[index].progression_level,
-        'progressionLevel': (userProgressions[index].progression_level / maxProgression.max_progression_level),
-        'repeatNumber': userProgressions[index].repeat_number
-      });
-      averageProgressionPoints += avgProgressionsList[index].exerciseLevel*20 + avgProgressionsList[index].repeatNumber*10; //100points par répétition
+      if (userProgressions.length > index) {
+        avgProgressionsList.push({
+          'exerciceId': maxProgression.exercise_id,
+          'exerciceDescription': userProgressions[index].description,
+          'exerciseLevel': parseInt(userProgressions[index].progression_level),
+          'progressionLevelPerc': parseInt(userProgressions[index].progression_level / maxProgression.max_progression_level) * 100,
+          'repeatNumber': parseInt(userProgressions[index].repeat_number)
+        });
+        averageProgressionPoints += avgProgressionsList[index].exerciseLevel * 20 + avgProgressionsList[index].repeatNumber * 10; //100points par répétition
+      }
     })
 
-    let userLevel = parseInt(averageProgressionPoints/200);
-    let remainingPoints = 200-(averageProgressionPoints%200);
+    let userLevel = parseInt(averageProgressionPoints / 200) + 1;
+    let remainingPoints = 200 - (averageProgressionPoints % 200);
 
     averageUserProgression['exerciseProgressions'] = avgProgressionsList;
-    averageUserProgression['averageProgressionPoints'] = averageProgressionPoints;
-    averageUserProgression['userLevel'] = userLevel;
-    averageUserProgression['remainingPoints'] = remainingPoints;
+    averageUserProgression['averageProgressionPoints'] = parseFloat(averageProgressionPoints);
+    averageUserProgression['userLevel'] = parseInt(userLevel);
+    averageUserProgression['remainingPoints'] = parseInt(remainingPoints);
 
 
 

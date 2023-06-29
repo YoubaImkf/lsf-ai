@@ -1,12 +1,12 @@
 class MainNavComponent {
   render() {
     let accountLink;
-    if(sessionStorage.getItem('user') == null) {
+    if (sessionStorage.getItem('user') == null) {
       accountLink = "/login";
     } else {
-      accountLink = "/account";
+      accountLink = "/progress";
     }
-    
+
     return `
     <nav class="main-nav">
       <a class="desktop-only" href="/">
