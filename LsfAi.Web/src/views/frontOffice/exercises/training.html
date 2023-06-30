@@ -46,14 +46,22 @@
         const definitionElement = document.getElementById('definition');
         definitionElement.textContent = definition;
 
+        const source = document.getElementById('myVideo');
+        
+        let video = `../../../assets/videos/${definition.toLocaleUpperCase()}_video.mp4`
+        source.src = video;setTimeout(() => {
+            source.load();
+        }, 2000);
+
+
     </script>
 
     <div class="header-container"></div>
 
     <div class="tutorial_video">
-        <video id="myVideo"  preload="auto" controls autoplay></video>
+        <video id="myVideo"  preload="auto" controls autoplay>
+        </video>
       </div>
-
     <div class="definition-container">
         <span id="definition"></span>
         <div class="definition-line"></div>
