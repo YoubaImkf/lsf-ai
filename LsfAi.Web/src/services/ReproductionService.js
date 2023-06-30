@@ -104,7 +104,7 @@ class ReproductionService {
       // Check if the current prediction matches the displayed letter
       if (this.definition === prediction[i].className) {
         // Check if the prediction probability exceeds 0.8
-        if (prediction[i].probability.toFixed(2) > 0.8) {
+        if (prediction[i].probability.toFixed(2) > 0.9) {
           popup.style.display = "block";
 
           setTimeout(() => {
