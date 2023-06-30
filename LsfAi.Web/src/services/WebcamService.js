@@ -64,7 +64,7 @@ class WebCamService{
      */
     for (let i = 0; i < this.maxPredictions; i++) {
       if (this.definition === prediction[i].className) {
-        if (prediction[i].probability.toFixed(2) > 0.8) {
+        if (prediction[i].probability.toFixed(2) > 0.9) {
           popup.style.display = "block";
           setTimeout(() => {
             popup.style.display = "none";
