@@ -1,7 +1,9 @@
 const form = document.getElementById("registration-form");
+const checkboxConsent = document.getElementById("checkbox-consent");
 const emailError = document.getElementById("email-error");
 const usernameError = document.getElementById("username-error");
 const passwordError = document.getElementById("password-error");
+const checkboxError = document.getElementById("checkbox-error");
 
 function postData(data) {
   fetch("http://localhost:8282/users/register", {
@@ -113,17 +115,24 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   // Validate form inputs
   if (await validateForm()) {
-    // Get form values
-    const email = form.elements.email.value;
-    const username = form.elements.username.value;
-    const password = form.elements.password.value;
 
-    let data = {
-      email: email,
-      username: username,
-      password: password,
-    };
+    if ( checkboxConsent.checked == true ) {
+      // Get form values
+      const email = form.elements.email.value;
+      const username = form.elements.username.value;
+      const password = form.elements.password.value;
 
-    postData(data);
+      let data = {
+        email: email,
+        username: username,
+        password: password,
+      };
+
+      postData(data);
+    } else {
+      checkboxError.textContent = "Accepter les conditions est requis";
+      checkboxError.classList.add("error-message");
+    }
+
   }
 });

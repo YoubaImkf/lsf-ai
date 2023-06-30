@@ -97,6 +97,21 @@ input[type="email"]:focus,
 input[type="password"]:focus {
   border: 1px solid rgb(148, 148, 148, 0.3);
 }
+/******** Consent ********/
+.consent {
+  display: flex;
+}
+
+.consent a {
+  color: var(--main-color)
+}
+
+div.form-container form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 1.5em;
+  cursor: pointer;
+}
 
 /******** Button ********/
 
